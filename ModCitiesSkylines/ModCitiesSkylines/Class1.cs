@@ -22,4 +22,14 @@ namespace ModCitiesSkylines
             get { return "Un mod el cual incorpora las actividades del usuario en la experiencia de juego"; }
         }
     }
+
+    //Clase que permite modificar la economia del juego
+    public class DineroExtra : EconomyExtensionBase
+    {
+        // Metodo que actualiza la economia en el juego
+        public override long OnUpdateMoneyAmount(long internalMoneyAmount)
+        {
+            return internalMoneyAmount + 1000000; // Modifica visualmente la economia del juego
+        }
+    }
 }
