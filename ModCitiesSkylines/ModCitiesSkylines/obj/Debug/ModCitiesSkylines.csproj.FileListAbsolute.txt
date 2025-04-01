@@ -1,0 +1,14 @@
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\ModCitiesSkylines.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\ModCitiesSkylines.pdb
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\Assembly-CSharp.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\ColossalManaged.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\ICities.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\UnityEngine.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\PopsApiWrapper.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\obj\Debug\ModCitiesSkylines.csproj.AssemblyReference.cache
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\obj\Debug\ModCitiesSkylines.csproj.CoreCompileInputs.cache
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\obj\Debug\ModCitie.EA4AD659.Up2Date
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\obj\Debug\ModCitiesSkylines.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\obj\Debug\ModCitiesSkylines.pdb
