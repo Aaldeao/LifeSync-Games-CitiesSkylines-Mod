@@ -29,7 +29,16 @@ namespace ModCitiesSkylines
         // Metodo que actualiza la economia en el juego
         public override long OnUpdateMoneyAmount(long internalMoneyAmount)
         {
-            return internalMoneyAmount + 1000000; // Modifica visualmente la economia del juego
+            int dineroExtra = 1000000; // Dinero extra que se incorpora al juego
+
+            // Agrega dinero extra a los ingresos publicos
+            EconomyManager.instance.AddResource(EconomyManager.Resource.PublicIncome, // Recurso al que se le agrega el dinero (Ingresos publicos)
+                dineroExtra, // Cantidad de dinero que se agrega
+                ItemClass.Service.None,
+                ItemClass.SubService.None,
+                ItemClass.Level.None);
+
+            return internalMoneyAmount;
         }
     }
 }
