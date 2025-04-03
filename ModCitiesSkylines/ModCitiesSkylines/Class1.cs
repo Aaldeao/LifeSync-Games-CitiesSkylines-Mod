@@ -48,12 +48,12 @@ namespace ModCitiesSkylines
         }
      
 
-        public void AgregarDineroExtra() // Metodo que agrega dinero extra a los ingresos semanales publicos
+        public void AgregarDineroExtra() // Metodo que agrega dinero extra a los ingresos publicos semanales
         {
             int dineroExtra = 100000; // Cantidad de dinero extra que se va a agregar
 
-            // Agrega dinero extra a los ingresos semanales publicos
-            EconomyManager.instance.AddResource(EconomyManager.Resource.PublicIncome, // Recurso al que se le agrega el dinero (Ingresos semanales publicos)
+            // Agrega dinero extra a los ingresos publicos semanales 
+            EconomyManager.instance.AddResource(EconomyManager.Resource.PublicIncome, // Recurso al que se le agrega el dinero (Ingresos publicos semanales )
                 dineroExtra, // Cantidad de dinero que se agrega
                 ItemClass.Service.None,
                 ItemClass.SubService.None,
