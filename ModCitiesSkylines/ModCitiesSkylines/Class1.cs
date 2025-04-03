@@ -23,22 +23,41 @@ namespace ModCitiesSkylines
         }
     }
 
-    //Clase que permite modificar la economia del juego
-    public class DineroExtra : EconomyExtensionBase
+    //Clase que permite modificar la economia del juego mediante el uso de una tecla
+    public class DineroExtra : ThreadingExtensionBase
     {
-        // Metodo que actualiza la economia en el juego
-        public override long OnUpdateMoneyAmount(long internalMoneyAmount)
-        {
-            int dineroExtra = 1000000; // Dinero extra que se incorpora al juego
+        private const KeyCode Boton_Dinero_Extra = KeyCode.L; // Tecla que se usara para agregar el dinero extra al juego
+        private bool dineroExtra_Activado = false; // Bandera que indica si el dinero extra esta activado o no
 
-            // Agrega dinero extra a los ingresos publicos
-            EconomyManager.instance.AddResource(EconomyManager.Resource.PublicIncome, // Recurso al que se le agrega el dinero (Ingresos publicos)
+        // Metodo que se ejecuta antes de cada frame de simulacion
+        public override void OnBeforeSimulationFrame()
+
+        {
+            if (Input.GetKeyDown(Boton_Dinero_Extra)) // Solo se ejecuta si se presiona la tecla definida
+            {
+                if (!dineroExtra_Activado) // Si el dinero extra no esta activado
+                {
+                    AgregarDineroExtra(); // Llama al metodo que agrega dinero extra
+                    dineroExtra_Activado = true; // Cambia la bandera a activado
+                }
+                else // Si el dinero extra ya esta activado
+                {
+                    dineroExtra_Activado = false; // Cambia la bandera a desactivado
+                }
+            }
+        }
+     
+
+        public void AgregarDineroExtra() // Metodo que agrega dinero extra a los ingresos semanales publicos
+        {
+            int dineroExtra = 100000; // Cantidad de dinero extra que se va a agregar
+
+            // Agrega dinero extra a los ingresos semanales publicos
+            EconomyManager.instance.AddResource(EconomyManager.Resource.PublicIncome, // Recurso al que se le agrega el dinero (Ingresos semanales publicos)
                 dineroExtra, // Cantidad de dinero que se agrega
                 ItemClass.Service.None,
                 ItemClass.SubService.None,
                 ItemClass.Level.None);
-
-            return internalMoneyAmount;
         }
     }
 }
