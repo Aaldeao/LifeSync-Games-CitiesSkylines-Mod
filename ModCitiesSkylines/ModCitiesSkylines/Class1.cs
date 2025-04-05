@@ -6,7 +6,8 @@ using System.Text;
 //Referencias de la biblioteca de Cities Skylines
 using ICities; // API de Cities Skylines para modding
 using ColossalFramework; // Biblioteca para Cities Skylines
-using UnityEngine; // Biblioteca de Unity para manipulacion del motor grafico y otros elementos
+using UnityEngine;
+using ColossalFramework.UI; // Biblioteca de Unity para manipulacion del motor grafico y otros elementos
 
 
 namespace ModCitiesSkylines
@@ -27,37 +28,30 @@ namespace ModCitiesSkylines
     public class DineroExtra : ThreadingExtensionBase
     {
         private const KeyCode Boton_Dinero_Extra = KeyCode.L; // Tecla que se usara para agregar el dinero extra al juego
-        private bool dineroExtra_Activado = false; // Bandera que indica si el dinero extra esta activado o no
-
-        // Metodo que se ejecuta antes de cada frame de simulacion
-        public override void OnBeforeSimulationFrame()
-
+        
+        public override void OnUpdate(float realTimeDelta, float simulationTimeDelta) // Metodo que se ejecuta una vez por frame
         {
             if (Input.GetKeyDown(Boton_Dinero_Extra)) // Solo se ejecuta si se presiona la tecla definida
             {
-                if (!dineroExtra_Activado) // Si el dinero extra no esta activado
-                {
-                    AgregarDineroExtra(); // Llama al metodo que agrega dinero extra
-                    dineroExtra_Activado = true; // Cambia la bandera a activado
-                }
-                else // Si el dinero extra ya esta activado
-                {
-                    dineroExtra_Activado = false; // Cambia la bandera a desactivado
-                }
+                AgregarDineroExtra(); // Llama al metodo que agrega dinero extra
             }
         }
-     
 
         public void AgregarDineroExtra() // Metodo que agrega dinero extra a los ingresos publicos semanales
         {
             int dineroExtra = 100000; // Cantidad de dinero extra que se va a agregar
-
+            int dineroReal = 1000; // Cantidad de dinero que el juego agrega cuando se agrega el dineroExtra = 100000
             // Agrega dinero extra a los ingresos publicos semanales 
             EconomyManager.instance.AddResource(EconomyManager.Resource.PublicIncome, // Recurso al que se le agrega el dinero (Ingresos publicos semanales )
                 dineroExtra, // Cantidad de dinero que se agrega
                 ItemClass.Service.None,
                 ItemClass.SubService.None,
                 ItemClass.Level.None);
+
+            UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
+                "Dinero Extra", // Titulo de la ventana emergente
+                "Se han agregado $" + dineroReal + " a los ingresos publicos semanales", // Mensaje de la ventana emergente
+                false);
         }
     }
 }
