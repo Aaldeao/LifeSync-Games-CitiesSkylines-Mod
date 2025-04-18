@@ -38,13 +38,13 @@ namespace ModCitiesSkylines
         }
     }
 
-    public class datosJugador // Clase para obtener los datos del jugador
+    public class PuntosJugador // Clase para obtener los puntos del jugador
     {
         // Variables para almacenar los datos de la API    
         public string Mensaje { get; set; }
         public string Titulo { get; set; }
 
-        public void ObtenerDatosdelJugador()
+        public void ObtenerPuntosdelJugador()
         {
             try
             {

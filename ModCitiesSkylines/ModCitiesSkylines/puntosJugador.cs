@@ -34,17 +34,17 @@ namespace ModCitiesSkylines
             if (Input.GetKeyDown(Puntos_de_Usuario))
             {
                 DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "ObtenerDatos() llamado");
-                ObtenerDatos();
+                ObtenerPuntos();
             }
         }
 
-        // Metodo para obtener los datos del jugador
-        public void ObtenerDatos()
+        // Metodo para obtener los puntos del jugador
+        public void ObtenerPuntos()
         {
             Thread t = new Thread(() =>
             {
-                var datosJ= new datosJugador();
-                datosJ.ObtenerDatosdelJugador();
+                var datosJ= new PuntosJugador();
+                datosJ.ObtenerPuntosdelJugador();
 
                 // Mensaje de sobre la conexion con la API
                 mensajeAPI2 = datosJ.Mensaje;

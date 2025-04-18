@@ -17,4 +17,3 @@ D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkyline
 D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\Newtonsoft.Json.xml
 M:\SteamLibrary\steamapps\common\Cities_Skylines\Files\Mods\ModCitiesSkylines-bGames\ModCitiesSkylines.dll
 M:\SteamLibrary\steamapps\common\Cities_Skylines\Files\Mods\ModCitiesSkylines-bGames\ModCitiesSkylines.pdb
-D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\ModCitiesSkylines\ModCitiesSkylines\bin\Debug\Newtonsoft.Json.pdb

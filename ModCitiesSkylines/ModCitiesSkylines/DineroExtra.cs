@@ -18,20 +18,9 @@ namespace ModCitiesSkylines
         private const KeyCode Boton_Dinero_Extra = KeyCode.L;
 
 
-        // Variables para almacenar el mensaje de la API
-        private string mensajeAPI = null;
-        private string tituloAPI = null;
-
         // Metodo que se ejecuta una vez por frame
         public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
         {
-            // Muestra mensaje de la conexion con la API de bGames
-            if (!string.IsNullOrEmpty(mensajeAPI))
-            {
-                Mensajes(tituloAPI, mensajeAPI);
-                mensajeAPI = null;
-                tituloAPI = null;
-            }
 
             if (Input.GetKeyDown(Boton_Dinero_Extra))
             {
@@ -53,36 +42,12 @@ namespace ModCitiesSkylines
 
             int dineroReal = 1000;
 
-            HacerLlamadaApi();
-
             // Mostrar mensaje de dinero agregado
-            UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
+            string dineroIcono = "ModCitiesSkylines.IconoDinero.png";
+            MensajesView.MostrarMensajeDinero(
                 "Dinero Extra",
                 "Se han agregado $" + dineroReal + " a los ingresos públicos semanales",
-                false);
-        }
-
-        // Metodo para llamar a la API de bGames
-        public void HacerLlamadaApi()
-        {
-
-            Thread t = new Thread(() =>
-            {
-                var bGames = new bGamesAPI();
-                bGames.Llamar_bGames();
-
-                // Mensaje de sobre la conexion con la API
-                mensajeAPI = bGames.Mensaje;
-                tituloAPI = bGames.Titulo;
-            });
-
-            t.IsBackground = true;
-            t.Start();
-        }
-
-        private void Mensajes(string titulo, string mensaje)
-        {
-            UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
+                dineroIcono);
         }
     }
 
