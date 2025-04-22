@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//Referencias de la biblioteca de Cities Skylines
+using ICities; // API de Cities Skylines para modding
+using UnityEngine;
+using System.Threading;
+using ColossalFramework.UI;
+
+using bGamesAPI;
+
+namespace ModCitiesSkylines
+{
+    public class ConexionbGames : ThreadingExtensionBase
+    {
+
+        private const KeyCode Conexion_con_bGames = KeyCode.N;
+
+
+        // Variables para almacenar el mensaje de la API
+        private string mensajeAPI = null;
+        private string tituloAPI = null;
+
+        // Metodo que se ejecuta una vez por frame
+        public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
+        {
+            // Muestra mensaje de la conexion con la API de bGames
+            if (!string.IsNullOrEmpty(mensajeAPI))
+            {
+                Mensajes(tituloAPI, mensajeAPI);
+                mensajeAPI = null;
+                tituloAPI = null;
+            }
+
+            if (Input.GetKeyDown(Conexion_con_bGames))
+            {
+                HacerLlamadaApi();
+            }
+        }
+
+        // Metodo para ver la conexion con la API de bGames en un hilo secundario
+        public void HacerLlamadaApi()
+        {
+
+            Thread t = new Thread(() =>
+            {
+                var bGames = APIbGames.conexionAPI();
+
+                // Mensaje de sobre la conexion con la API
+                mensajeAPI = bGames.Mensaje;
+                tituloAPI = bGames.Titulo;
+            });
+
+            t.IsBackground = true;
+            t.Start();
+        }
+
+        private void Mensajes(string titulo, string mensaje)
+        {
+            UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
+        }
+    }
+}
