@@ -14,9 +14,10 @@ using bGamesAPI;
 
 namespace ModCitiesSkylines
 {
-    public class puntosJugador : ThreadingExtensionBase
+    public class PuntosJugador : ThreadingExtensionBase
     {
-        private const KeyCode Puntos_de_Usuario = KeyCode.M;
+        // Tecla para ver los puntos del jugador
+        private const KeyCode Puntos_de_Usuario = KeyCode.F3;
 
         // Variables para almacenar el mensaje de la API
         private string mensajeAPI2 = null;
@@ -50,9 +51,8 @@ namespace ModCitiesSkylines
                 // Mensaje de sobre la conexion con la API
                 mensajeAPI2 = datosJ.Mensaje;
                 tituloAPI2 = datosJ.Titulo;
-
-
             });
+
             t.IsBackground = true;
             t.Start();
         }

@@ -15,8 +15,8 @@ namespace ModCitiesSkylines
 {
     public class ConexionbGames : ThreadingExtensionBase
     {
-
-        private const KeyCode Conexion_con_bGames = KeyCode.N;
+        // Tecla para ver la conexion con la API de bGames
+        private const KeyCode Conexion_con_bGames = KeyCode.F5;
 
 
         // Variables para almacenar el mensaje de la API
@@ -46,7 +46,7 @@ namespace ModCitiesSkylines
 
             Thread t = new Thread(() =>
             {
-                var bGames = APIbGames.conexionAPI();
+                var bGames = APIbGames.ConexionAPI();
 
                 // Mensaje de sobre la conexion con la API
                 mensajeAPI = bGames.Mensaje;

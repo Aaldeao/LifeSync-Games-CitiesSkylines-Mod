@@ -15,7 +15,7 @@ namespace ModCitiesSkylines
     public class DineroExtra : ThreadingExtensionBase
     {
         // Tecla para activar el dinero extra
-        private const KeyCode Boton_Dinero_Extra = KeyCode.L;
+        private const KeyCode Boton_Dinero_Extra = KeyCode.F4;
 
 
         // Metodo que se ejecuta una vez por frame
@@ -28,21 +28,21 @@ namespace ModCitiesSkylines
             }
         }
 
-        // Metodo que agrega dinero extra a los ingresos semanales
+        // Metodo que agrega dinero extra
         public void AgregarDineroExtra()
         {
             int dineroExtra = 100000;
-
+            
             EconomyManager.instance.AddResource(
-                EconomyManager.Resource.PublicIncome,
+                EconomyManager.Resource.RewardAmount,
                 dineroExtra,
                 ItemClass.Service.None,
                 ItemClass.SubService.None,
                 ItemClass.Level.None);
 
-            int dineroReal = 1000;
+            int dineroReal = dineroExtra/100;
 
-            // Mostrar mensaje de dinero agregado
+            // Muestra el mensaje cuando se agrega el dinero extra
             string dineroIcono = "ModCitiesSkylines.IconoDinero.png";
             MensajesView.MostrarMensajeDinero(
                 "Dinero Extra",

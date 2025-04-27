@@ -4,3 +4,13 @@ D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkyline
 D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\obj\Debug\bGamesAPI.csproj.CoreCompileInputs.cache
 D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\obj\Debug\bGamesAPI.dll
 D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\obj\Debug\bGamesAPI.pdb
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\ModCitiesSkylines.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\ICities.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\UnityEngine.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\ColossalManaged.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\Assembly-CSharp.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\PopsApiWrapper.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\bin\Debug\ModCitiesSkylines.pdb
+D:\USACH\Ingenieria Informatica\Año 2025\TRABAJO DE TITULO\bGames-CitiesSkylines-Mod\bGamesAPI\obj\Debug\bGamesAPI.csproj.Up2Date

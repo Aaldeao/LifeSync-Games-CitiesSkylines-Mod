@@ -7,6 +7,7 @@ using System.IO;
 using ColossalFramework.UI;
 using UnityEngine;
 using System.Collections;
+using ColossalFramework.Plugins;
 
 namespace ModCitiesSkylines
 {
@@ -67,7 +68,7 @@ namespace ModCitiesSkylines
             {
                 if (stream == null)
                 {
-                    Debug.LogError("No se encontró el recurso embebido: " + icono);
+                    DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "No se encontró el icono: " + icono);
                     return null;
                 }
 

@@ -13,7 +13,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 74,
+          "DockedHeight": 534,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -26,12 +26,22 @@
               "Title": "Class1.cs",
               "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Class1.cs",
               "RelativeDocumentMoniker": "Class1.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Class1.cs*",
-              "RelativeToolTip": "Class1.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Class1.cs",
+              "RelativeToolTip": "Class1.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAowJ0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T23:11:54.003Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 18,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
