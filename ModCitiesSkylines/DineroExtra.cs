@@ -32,7 +32,7 @@ namespace ModCitiesSkylines
         public void AgregarDineroExtra()
         {
             int dineroExtra = 100000;
-            
+
             EconomyManager.instance.AddResource(
                 EconomyManager.Resource.RewardAmount,
                 dineroExtra,
@@ -40,7 +40,7 @@ namespace ModCitiesSkylines
                 ItemClass.SubService.None,
                 ItemClass.Level.None);
 
-            int dineroReal = dineroExtra/100;
+            int dineroReal = dineroExtra / 100;
 
             // Muestra el mensaje cuando se agrega el dinero extra
             string dineroIcono = "ModCitiesSkylines.IconoDinero.png";

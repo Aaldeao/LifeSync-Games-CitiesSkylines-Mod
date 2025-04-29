@@ -23,10 +23,12 @@ namespace ModCitiesSkylines
         private string mensajeAPI2 = null;
         private string tituloAPI2 = null;
 
+        private int? puntos = null; // Variable para almacenar los puntos del jugador
+
         // Metodo que se ejecuta una vez por frame
         public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
         {
-            // Muestra mensaje de la conexion con la API de bGames
+            // Muestra mensaje
             if (!string.IsNullOrEmpty(mensajeAPI2))
             {
                 Mensajes2(tituloAPI2, mensajeAPI2);
@@ -46,11 +48,12 @@ namespace ModCitiesSkylines
         {
             Thread t = new Thread(() =>
             {
-                var datosJ = APIbGames.ObtenerPuntosdelJugador();
+                var datosJ = AtributosJugador.ObtenerPuntosdelJugador();
 
                 // Mensaje de sobre la conexion con la API
                 mensajeAPI2 = datosJ.Mensaje;
                 tituloAPI2 = datosJ.Titulo;
+                puntos = datosJ.Puntos; // Almacena los puntos del jugador
             });
 
             t.IsBackground = true;

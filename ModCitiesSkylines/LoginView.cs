@@ -9,6 +9,7 @@ using System.Net;
 using UnityEngine;
 using ColossalFramework.UI;
 using ColossalFramework.Plugins;
+using bGamesAPI;
 
 
 namespace ModCitiesSkylines
@@ -211,17 +212,17 @@ namespace ModCitiesSkylines
                 return;
             }
 
-            var resultado = bGamesAPI.APIbGames.IniciarSesion(correo, contrasena);
-     
-            if (resultado.Titulo == "Inicio de sesión" && int.TryParse(resultado.Mensaje, out int idplayers))
+            var resultado = AutenticacionJugador.IniciarSesion(correo, contrasena);
+
+            if (resultado.IdJugador.HasValue) 
             {
-                idJugador = idplayers;
+                idJugador = resultado.IdJugador.Value;
                 MostrarMensaje("Inicio de sesión exitoso", "Bienvenido a bGames");
                 panelLogin.Hide();
             }
             else
             {
-                MostrarMensaje("Error", resultado.Mensaje);
+                MostrarMensaje(resultado.Titulo, resultado.Mensaje);
             }
         }
 
@@ -232,13 +233,13 @@ namespace ModCitiesSkylines
             MostrarMensaje("Cerrar sesión", "Has cerrado tu sesión correctamente.");
             if (usuario != null) usuario.text = "";
             if (password != null) password.text = "";
-            if (panelLogin != null) panelLogin.Hide();
+            panelLogin.Hide();
         }
 
         // Método para cerrar el panel de login
         private static void CerrarLogin()
         {
-          mostrarLogin();
+            mostrarLogin();
         }
 
         private static void MostrarMensaje(string titulo, string mensaje)
