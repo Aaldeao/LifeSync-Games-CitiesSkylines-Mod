@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\atributosjugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:atributosjugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\atributosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:atributosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\autenticacionjugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:autenticacionjugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\autenticacionjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:autenticacionjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\conexionbg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\conexionbg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:conexionbg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "ConexionbG.cs",
               "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\ConexionbG.cs",
               "RelativeToolTip": "ConexionbG.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T22:30:29.497Z",
               "EditorCaption": ""
@@ -44,12 +44,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AtributosJugador.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJugador.cs",
-              "RelativeDocumentMoniker": "AtributosJugador.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJugador.cs*",
-              "RelativeToolTip": "AtributosJugador.cs*",
-              "ViewState": "AgIAADQAAAAAAAAAAAAkwEEAAAAVAAAAAAAAAA==",
+              "Title": "AtributosJG.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
+              "RelativeDocumentMoniker": "AtributosJG.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
+              "RelativeToolTip": "AtributosJG.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAgwEsAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T22:54:44.948Z",
               "EditorCaption": ""
@@ -57,12 +57,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AutenticacionJugador.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AutenticacionJugador.cs",
-              "RelativeDocumentMoniker": "AutenticacionJugador.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AutenticacionJugador.cs",
-              "RelativeToolTip": "AutenticacionJugador.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAIwEoAAAAAAAAAAAAAAA==",
+              "Title": "AutenticacionJG.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AutenticacionJG.cs",
+              "RelativeDocumentMoniker": "AutenticacionJG.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AutenticacionJG.cs",
+              "RelativeToolTip": "AutenticacionJG.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T23:03:05.555Z",
               "EditorCaption": ""

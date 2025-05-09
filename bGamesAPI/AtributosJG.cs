@@ -9,16 +9,22 @@ using System.Text.RegularExpressions;
 
 namespace bGamesAPI
 {
+    public class AtributosJugador
+    {
+        public string Nombre { get; set; } // Para almacenar el nombre del atributo
+        public int? Punto { get; set; } // Para almacenar el valor del atributo
+    }
     public class ResultadosAtributos
     {
         public string Titulo { get; set; } // Para almacenar el título del resultado
         public string Mensaje { get; set; } // Para almacenar el mensaje del resultado
 
         public int? Puntos { get; set; } // Para almacenar los puntos del jugador
+        public List<AtributosJugador> Atributos { get; set; } = new List<AtributosJugador>(); // Para almacenar los atributos del jugador
 
     }
 
-    public class AtributosJugador
+    public class AtributosJG
     {
         public static ResultadosAtributos ObtenerPuntosdelJugador()
         {
@@ -44,19 +50,20 @@ namespace bGamesAPI
                     // Leer la respuesta de la API
                     string result = reader.ReadToEnd();
 
-
+                    var name = Regex.Matches(result, @"""name""\s*:\s*""(.*?)"""); // Expresión regular para extraer el nombre del atributo
                     var datos = Regex.Matches(result, @"""data""\s*:\s*(\d+)"); // Expresión regular para extraer los datos buscando el valor de "data"
+                    
                     int sumaPuntos = 0;
-                    foreach (Match match in datos) //Recorre los datos encontrados para luego sumar los puntos
+                    if (name.Count == datos.Count && datos.Count>0)
                     {
-                        if (int.TryParse(match.Groups[1].Value, out int valor))
+                        for (int i = 0; i < datos.Count; i++)
                         {
-                            sumaPuntos += valor;
+                            string nombre = name[i].Groups[1].Value; // Obtener el nombre del atributo
+                            int punto = int.Parse(datos[i].Groups[1].Value); // Obtener el valor del atributo
+                            sumaPuntos += punto;
+                            resultado.Atributos.Add(new AtributosJugador { Nombre = nombre, Punto = punto }); // Agregar el atributo a la lista
+
                         }
-                    }
-                    if (datos.Count > 0)
-                    {
-                        
                         resultado.Titulo = "Puntos bGames";
                         resultado.Puntos = sumaPuntos;
                         resultado.Mensaje = sumaPuntos == 1

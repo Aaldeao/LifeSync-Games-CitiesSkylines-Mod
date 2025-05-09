@@ -63,9 +63,9 @@
     <Compile Include="DineroExtra.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="LoginView.cs" />
-    <Compile Include="MensajesView.cs" />
+    <Compile Include="DineroExtraView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PuntosJugador.cs" />
+    <Compile Include="PuntosJG.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="IconoDinero.png" />

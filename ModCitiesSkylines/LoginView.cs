@@ -212,7 +212,7 @@ namespace ModCitiesSkylines
                 return;
             }
 
-            var resultado = AutenticacionJugador.IniciarSesion(correo, contrasena);
+            var resultado = AutenticacionJG.IniciarSesion(correo, contrasena);
 
             if (resultado.IdJugador.HasValue) 
             {

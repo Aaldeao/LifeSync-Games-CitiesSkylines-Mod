@@ -11,7 +11,7 @@ using ColossalFramework.Plugins;
 
 namespace ModCitiesSkylines
 {
-    public static class MensajesView
+    public static class DineroExtraView
     {
         // Método para mostrar mensajes personalizado
         public static void MostrarMensajeDinero(string titulo, string mensaje, string dineroIcono)
@@ -63,7 +63,7 @@ namespace ModCitiesSkylines
         // Método para cargar el icono y mostrarlo en el mensaje
         private static Texture2D LoadTexture(string icono)
         {
-            var assembly = typeof(MensajesView).Assembly;
+            var assembly = typeof(DineroExtraView).Assembly;
             using (var stream = assembly.GetManifestResourceStream(icono))
             {
                 if (stream == null)

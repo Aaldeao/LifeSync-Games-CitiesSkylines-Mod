@@ -17,7 +17,7 @@ namespace bGamesAPI
 
     }
 
-    public class AutenticacionJugador
+    public class AutenticacionJG
     {
         public static ResultadosAutenticacion IniciarSesion(string email, string contrasena)
         {
