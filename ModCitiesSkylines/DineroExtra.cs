@@ -46,7 +46,7 @@ namespace ModCitiesSkylines
             string dineroIcono = "ModCitiesSkylines.IconoDinero.png";
             DineroExtraView.MostrarMensajeDinero(
                 "Dinero Extra",
-                "Se han agregado $" + dineroReal + " a los ingresos públicos semanales",
+                "Has ganado " + dineroReal + " ₡ gracias a tus puntos bGames.",
                 dineroIcono);
         }
     }

@@ -18,49 +18,56 @@ namespace ModCitiesSkylines
         {
             UIView view = UIView.GetAView();
 
-            //Configuración del panel
+            // Crear panel principal
             UIPanel panel = view.AddUIComponent(typeof(UIPanel)) as UIPanel;
-            panel.backgroundSprite = "InfoDisplay";
-            panel.opacity = 0.95f;
-            panel.size = new Vector2(600f, 200f);
+            panel.backgroundSprite = "MenuPanel2";
+            panel.opacity = 0f;
+            panel.size = new Vector2(510f, 140f); 
             panel.relativePosition = new Vector3((view.fixedWidth - panel.width) / 2, (view.fixedHeight - panel.height) / 2);
             panel.isVisible = true;
             panel.clipChildren = true;
 
-            float espacio = 20f; //espacio entre el icono y el texto
-            float iconT = 128f; //tamaño del icono
+            // Título 
+            UILabel tituloLabel = panel.AddUIComponent<UILabel>();
+            tituloLabel.text = titulo;
+            tituloLabel.textScale = 1.4f;
+            tituloLabel.textColor = new Color32(255, 255, 255, 255);
+            tituloLabel.autoSize = true;
+            tituloLabel.relativePosition = new Vector3((panel.width - tituloLabel.width) / 2, 10f);
 
+
+            float iconT = 72f;
+            float espacio = 15f;
+
+            // Cargar textura e insertar icono 
             Texture2D texture = LoadTexture(dineroIcono);
             if (texture != null)
             {
                 UITextureSprite icono = panel.AddUIComponent<UITextureSprite>();
                 icono.texture = texture;
                 icono.size = new Vector2(iconT, iconT);
-                icono.relativePosition = new Vector3(espacio, (panel.height - iconT) / 2);
+                icono.relativePosition = new Vector3(espacio, (panel.height - iconT) / 2 + 20f);
             }
 
-            // Configuración del título
-            UILabel tituloLabel = panel.AddUIComponent<UILabel>();
-            tituloLabel.text = titulo;
-            tituloLabel.textScale = 1.4f; // tamaño del texto
-            tituloLabel.textColor = new Color32(255, 255, 255, 255);
-            tituloLabel.relativePosition = new Vector3(iconT + 2 * espacio, 30);
-            tituloLabel.autoSize = true;
 
-            // Configuración del mensaje
+            // Mensaje
             UILabel mensajeLabel = panel.AddUIComponent<UILabel>();
             mensajeLabel.text = mensaje;
-            mensajeLabel.textScale = 0.8f; // tamaño del texto
-            mensajeLabel.textColor = new Color32(240, 240, 240, 255);
-            mensajeLabel.relativePosition = new Vector3(iconT + 2 * espacio, 70);
+            mensajeLabel.textScale = 1.0f;
+            mensajeLabel.textColor = new Color32(230, 230, 230, 255);
             mensajeLabel.autoSize = true;
+            mensajeLabel.relativePosition = new Vector3(iconT + 2 * espacio, 60f);
 
-            panel.StartCoroutine(CerrarMensaje(panel, 4f)); // tiempo en segundos para cerrar el mensaje
 
+            // Fade-in
+            panel.StartCoroutine(FadeIn(panel, 0.2f));
 
+            // Fade-out
+            panel.StartCoroutine(CerrarMensaje(panel, 4f));
         }
 
-        // Método para cargar el icono y mostrarlo en el mensaje
+
+        // Cargar el icono desde los recursos embebidos
         private static Texture2D LoadTexture(string icono)
         {
             var assembly = typeof(DineroExtraView).Assembly;
@@ -81,11 +88,40 @@ namespace ModCitiesSkylines
             }
         }
 
+
+        // Animación de desaparición
         private static IEnumerator CerrarMensaje(UIPanel panel, float segundos)
         {
             yield return new WaitForSeconds(segundos);
-            GameObject.Destroy(panel.gameObject);
+            yield return panel.StartCoroutine(FadeOut(panel, 0.5f));
         }
 
+        // Aparición del panel con efecto de desvanecimiento (fade-in)
+        private static IEnumerator FadeIn(UIPanel panel, float duracion)
+        {
+            float t = 0;
+            while (t < duracion)
+            {
+                panel.opacity = Mathf.Lerp(0f, 0.95f, t / duracion);
+                t += Time.deltaTime;
+                yield return null;
+            }
+            panel.opacity = 0.95f;
+        }
+
+        // Desaparición del panel con efecto de desvanecimiento (fade-out)
+        private static IEnumerator FadeOut(UIPanel panel, float duracion)
+        {
+            float t = 0;
+            float inicio = panel.opacity;
+            while (t < duracion)
+            {
+                panel.opacity = Mathf.Lerp(inicio, 0f, t / duracion);
+                t += Time.deltaTime;
+                yield return null;
+            }
+            panel.opacity = 0f;
+            GameObject.Destroy(panel.gameObject);
+        }
     }
 }

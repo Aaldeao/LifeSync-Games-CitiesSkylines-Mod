@@ -59,7 +59,21 @@ namespace ModCitiesSkylines
 
         private void Mensajes(string titulo, string mensaje)
         {
-            UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
+            if (titulo == "Conexión Exitosa")
+            {
+                var panelConexion = UIView.library.ShowModal<ConfirmPanel>("ConfirmPanel");
+                panelConexion.SetMessage(titulo, "¡Conexión con bGames confirmada exitosamente!");
+
+                // Oculta los botones
+                panelConexion.Find<UIButton>("Yes")?.Hide();
+                panelConexion.Find<UIButton>("No")?.Hide();
+            }
+            else
+            {
+                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
+            }
         }
+
     }
 }
+

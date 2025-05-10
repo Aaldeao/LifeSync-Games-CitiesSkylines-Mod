@@ -33,10 +33,27 @@ namespace bGamesAPI
                 {
                     // Leer la respuesta del servidor si la conexión es exitosa
                     string result = reader.ReadToEnd();
-                    resultado.Titulo = "Conexión Exitosa";
-                    resultado.Mensaje = "Respuesta del servidor: " + result;
+                    string json = Regex.Match(result, @"\{.*?\}").Value; // Expresión regular para extraer el JSON
+                    Match match = Regex.Match(json, "\"secondMessage\"\\s*:\\s*\"([^\"]+)\"");
+
+                    if (match.Success)
+                    {
+                        string secondMessage = match.Groups[1].Value; // Obtener el mensaje
+                        if (secondMessage == "Confirmado")
+                        {
+                            resultado.Titulo = "Conexión Exitosa";
+                            resultado.Mensaje = "¡Conexión con bGames confirmada exitosamente!";
+                        }
+                        else
+                        {
+                            resultado.Titulo = "Respuesta de bGames";
+                            resultado.Mensaje = "Mensaje de la API bGames: " + secondMessage;
+                        }
+                    }
                 }
             }
+
+
             catch (Exception ex)
             {
                 // Manejar la excepción si la conexión falla

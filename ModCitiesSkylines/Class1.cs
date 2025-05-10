@@ -18,7 +18,7 @@ namespace ModCitiesSkylines
         }
         public string Description // Permite darle una descripción al mod
         {
-            get { return "Un mod el cual incorpora las actividades del usuario en la experiencia de juego"; }
+            get { return "Convierte tus actividades en parte de la experiencia de juego"; }
         }
     }
 }
