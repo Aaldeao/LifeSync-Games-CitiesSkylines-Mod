@@ -35,7 +35,7 @@ namespace bGamesAPI
                 // Verificar si el jugador ha iniciado sesión
                 if (!LoginPanel.idJugador.HasValue) // si el idJugador es null es porque no se ha iniciado sesión
                 {
-                    resultado.Titulo = "Puntos bGames";
+                    resultado.Titulo = "Puntos de LifeSync Games";
                     resultado.Mensaje = "No se ha iniciado sesión.";
                     return resultado;
                 }
@@ -64,17 +64,17 @@ namespace bGamesAPI
                             resultado.Atributos.Add(new AtributosJugador { Nombre = nombre, Punto = punto }); // Agregar el atributo a la lista
 
                         }
-                        resultado.Titulo = "Puntos bGames";
+                        resultado.Titulo = "Puntos de LifeSync Games";
                         resultado.Puntos = sumaPuntos;
                         resultado.Mensaje = sumaPuntos == 1
-                            ? $"Tienes {sumaPuntos} punto bGames."
-                            : $"Tienes {sumaPuntos} puntos bGames.";
+                            ? $"Tienes {sumaPuntos} punto en LifeSync Games."
+                            : $"Tienes {sumaPuntos} puntos en LifeSync Games.";
 
                     }
                     else
                     {
-                        resultado.Titulo = "Sin puntos bGames";
-                        resultado.Mensaje = "No cuentas con puntos bGames.";
+                        resultado.Titulo = "Sin puntos en LifeSync Games";
+                        resultado.Mensaje = "No cuentas con puntos en tu perfil de LifeSync Games.";
                     }
 
                 }

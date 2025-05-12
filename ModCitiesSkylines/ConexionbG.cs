@@ -13,7 +13,7 @@ using bGamesAPI;
 
 namespace ModCitiesSkylines
 {
-    public class ConexionbGames : ThreadingExtensionBase
+    public class ConexionbG : ThreadingExtensionBase
     {
         // Tecla para ver la conexion con la API de bGames
         private const KeyCode Conexion_con_bGames = KeyCode.F5;
@@ -61,12 +61,7 @@ namespace ModCitiesSkylines
         {
             if (titulo == "Conexión Exitosa")
             {
-                var panelConexion = UIView.library.ShowModal<ConfirmPanel>("ConfirmPanel");
-                panelConexion.SetMessage(titulo, "¡Conexión con bGames confirmada exitosamente!");
-
-                // Oculta los botones
-                panelConexion.Find<UIButton>("Yes")?.Hide();
-                panelConexion.Find<UIButton>("No")?.Hide();
+                ConexionView.PanelConexio(titulo, mensaje);
             }
             else
             {

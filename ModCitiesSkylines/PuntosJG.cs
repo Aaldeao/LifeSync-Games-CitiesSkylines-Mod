@@ -38,7 +38,6 @@ namespace ModCitiesSkylines
 
             if (Input.GetKeyDown(Puntos_de_Usuario))
             {
-                DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "ObtenerDatos() llamado");
                 ObtenerPuntos();
             }
         }

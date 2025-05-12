@@ -22,7 +22,7 @@ namespace ModCitiesSkylines
             UIPanel panel = view.AddUIComponent(typeof(UIPanel)) as UIPanel;
             panel.backgroundSprite = "MenuPanel2";
             panel.opacity = 0f;
-            panel.size = new Vector2(510f, 140f); 
+            panel.size = new Vector2(510f, 150f); 
             panel.relativePosition = new Vector3((view.fixedWidth - panel.width) / 2, (view.fixedHeight - panel.height) / 2);
             panel.isVisible = true;
             panel.clipChildren = true;
@@ -36,8 +36,8 @@ namespace ModCitiesSkylines
             tituloLabel.relativePosition = new Vector3((panel.width - tituloLabel.width) / 2, 10f);
 
 
-            float iconT = 72f;
-            float espacio = 15f;
+            float iconT = 80f;
+            float espacio = 18f;
 
             // Cargar textura e insertar icono 
             Texture2D texture = LoadTexture(dineroIcono);
@@ -55,7 +55,10 @@ namespace ModCitiesSkylines
             mensajeLabel.text = mensaje;
             mensajeLabel.textScale = 1.0f;
             mensajeLabel.textColor = new Color32(230, 230, 230, 255);
-            mensajeLabel.autoSize = true;
+            mensajeLabel.autoSize = false;
+            mensajeLabel.wordWrap = true; // Salto de línea si es necesario
+            mensajeLabel.width = panel.width - iconT - 3 * espacio; // Ajustar el ancho del mensaje
+            mensajeLabel.height = 60f; // Ajustar la altura del mensaje
             mensajeLabel.relativePosition = new Vector3(iconT + 2 * espacio, 60f);
 
 
@@ -67,7 +70,7 @@ namespace ModCitiesSkylines
         }
 
 
-        // Cargar el icono desde los recursos embebidos
+        // Cargar el icono
         private static Texture2D LoadTexture(string icono)
         {
             var assembly = typeof(DineroExtraView).Assembly;

@@ -42,12 +42,12 @@ namespace bGamesAPI
                         if (secondMessage == "Confirmado")
                         {
                             resultado.Titulo = "Conexión Exitosa";
-                            resultado.Mensaje = "¡Conexión con bGames confirmada exitosamente!";
+                            resultado.Mensaje = "¡La conexión con LifeSync Games es confirmada exitosamente!";
                         }
                         else
                         {
-                            resultado.Titulo = "Respuesta de bGames";
-                            resultado.Mensaje = "Mensaje de la API bGames: " + secondMessage;
+                            resultado.Titulo = "Respuesta de LifeSync Games";
+                            resultado.Mensaje = "Mensaje de la API de LifeSync Games: " + secondMessage;
                         }
                     }
                 }

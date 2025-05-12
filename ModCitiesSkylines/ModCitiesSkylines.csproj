@@ -59,7 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="ConexionbGames.cs" />
+    <Compile Include="ConexionbG.cs" />
+    <Compile Include="ConexionView.cs" />
     <Compile Include="DineroExtra.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="LoginView.cs" />
@@ -69,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="IconoDinero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ITO-iso.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

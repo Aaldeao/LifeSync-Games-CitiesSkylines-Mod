@@ -50,44 +50,38 @@ namespace ModCitiesSkylines
             panelLogin = view.AddUIComponent(typeof(UIPanel)) as UIPanel;
             panelLogin.backgroundSprite = "InfoDisplay";
             panelLogin.opacity = 0.95f;
-            panelLogin.size = new Vector2(600f, 260f);
+            panelLogin.size = new Vector2(600f, 280f); // Tamaño del panel
             panelLogin.relativePosition = new Vector2((view.fixedWidth - panelLogin.width) / 2, (view.fixedHeight - panelLogin.height) / 2);
             panelLogin.isInteractive = true; // Permitir la interacción con el panel
             panelLogin.canFocus = true;
             panelLogin.isEnabled = true;
             panelLogin.isVisible = false;
 
-            panelLogin.eventVisibilityChanged += (component, isVisible) =>
-            {
-                if (isVisible)
-                {
-                    if (usuario != null)
-                    {
-                        DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Login visible.");
-                    }
-                    // Si el campo del usuario es null, significa que el panel no se ha inicializado
-                    else
-                    {
-                        DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Login oculto.");
-                    }
-                }
-            };
-
             // Título
             UILabel tituloLabel = panelLogin.AddUIComponent<UILabel>();
-            tituloLabel.text = "Iniciar Sesión";
+            tituloLabel.text = "LifeSync Games";
             tituloLabel.textScale = 1.6f; // Tamaño del texto
             tituloLabel.textColor = new Color32(255, 255, 255, 255);
-            tituloLabel.relativePosition = new Vector2((panelLogin.width - tituloLabel.width) / 2f, 5f);
+            tituloLabel.relativePosition = new Vector2((panelLogin.width - tituloLabel.width) / 2f, 25f);
 
+            // Cargar textura e insertar icono
+            Texture2D texture = LoadTexture("ModCitiesSkylines.ITO-iso.png");
+            if (texture != null)
+            {
+                UITextureSprite logoSprite = panelLogin.AddUIComponent<UITextureSprite>();
+                logoSprite.texture = texture;
+                logoSprite.size = new Vector2(75f, 60f); // Ajustar el tamaño del logo
+                logoSprite.relativePosition = new Vector2(20f, 15f); // Posición izquierda y vertical centrada con el título
+            }
 
+            // Titulo del campo de texto para el correo
             UILabel tituloLabelCorreo = panelLogin.AddUIComponent<UILabel>();
             tituloLabelCorreo.text = "Correo:";
-            tituloLabelCorreo.relativePosition = new Vector2(20f, 45f);
+            tituloLabelCorreo.relativePosition = new Vector2(20f, 85f); // Ajusta el título del correo
 
             // Campo de texto para el correo
             usuario = panelLogin.AddUIComponent<UITextField>();
-            usuario.relativePosition = new Vector2(20f, 65f);
+            usuario.relativePosition = new Vector2(20f, 105f); // Ajusta la posición del campo de texto
             usuario.size = new Vector2(560f, 30f);
             usuario.text = "";
             usuario.isInteractive = true;
@@ -102,18 +96,14 @@ namespace ModCitiesSkylines
             usuario.textColor = new Color32(0, 0, 0, 255);
             usuario.padding = new RectOffset(5, 5, 5, 5);
 
-            usuario.eventTextChanged += (component, value) =>
-            {
-                DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, $"Usuario escribiendo: {value}");
-            };
-
+            // Titulo del campo de texto para la contraseña
             UILabel tituloLabelContrasena = panelLogin.AddUIComponent<UILabel>();
             tituloLabelContrasena.text = "Contraseña:";
-            tituloLabelContrasena.relativePosition = new Vector2(20f, 110f);
+            tituloLabelContrasena.relativePosition = new Vector2(20f, 150f); // Ajusta el título de la contraseña
 
             // Campo de texto para la contraseña
             password = panelLogin.AddUIComponent<UITextField>();
-            password.relativePosition = new Vector2(20f, 130f);
+            password.relativePosition = new Vector2(20f, 170f);  // Ajusta la posición del campo de texto
             password.size = new Vector2(560f, 30f);
             password.text = "";
             password.isPasswordField = true;
@@ -129,15 +119,10 @@ namespace ModCitiesSkylines
             password.textColor = new Color32(0, 0, 0, 255);
             password.padding = new RectOffset(5, 5, 5, 5);
 
-            password.eventTextChanged += (component, value) =>
-            {
-                DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, $"Password escribiendo: {value.Length} caracteres");
-            };
-
             // Botón de iniciar sesión
             loginButton = panelLogin.AddUIComponent<UIButton>();
             loginButton.text = "Iniciar Sesión";
-            loginButton.relativePosition = new Vector2(20f, 200f);
+            loginButton.relativePosition = new Vector2((panelLogin.width - 270) / 2, 225f); // Ajusta la posición del botón
             loginButton.size = new Vector2(270f, 30f);
             EstiloBotones(loginButton);
             loginButton.eventClick += (component, eventParam) =>
@@ -146,16 +131,16 @@ namespace ModCitiesSkylines
             };
 
             // Botón de cerrar sesión
-            closeButton = panelLogin.AddUIComponent<UIButton>();
-            closeButton.text = "Cerrar Sesión";
-            closeButton.relativePosition = new Vector2(310f, 200f);
-            closeButton.size = new Vector2(270f, 30f);
-            EstiloBotones(closeButton);
-            closeButton.eventClick += (component, eventParam) =>
-            {
-                CerrarSesion();
-                CerrarLogin();
-            };
+            //closeButton = panelLogin.AddUIComponent<UIButton>();
+            //closeButton.text = "Cerrar Sesión";
+            //closeButton.relativePosition = new Vector2(310f, 200f);
+            //closeButton.size = new Vector2(270f, 30f);
+            //EstiloBotones(closeButton);
+            //closeButton.eventClick += (component, eventParam) =>
+            //{
+                //CerrarSesion();
+                //CerrarLogin();
+            //};
 
             // Botón de cerrar el panel
             closeXButton = panelLogin.AddUIComponent<UIButton>();
@@ -184,7 +169,6 @@ namespace ModCitiesSkylines
                 {
                     panelLogin.isInteractive = true;
                     panelLogin.isEnabled = true;
-                    DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Mostrar login: Panel habilitado.");
                 }
             }
         }
@@ -217,7 +201,7 @@ namespace ModCitiesSkylines
             if (resultado.IdJugador.HasValue) 
             {
                 idJugador = resultado.IdJugador.Value;
-                MostrarMensaje("Inicio de sesión exitoso", "Bienvenido a bGames");
+                MostrarMensaje("Inicio de sesión exitoso", "Bienvenido a LifeSync Games");
                 panelLogin.Hide();
             }
             else
@@ -254,9 +238,26 @@ namespace ModCitiesSkylines
 
             if (eventParam.keycode == KeyCode.Return || eventParam.keycode == KeyCode.KeypadEnter)
             {
-                DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Tecla ENTER detectada.");
                 IniciarSesion();
                 eventParam.Use();
+            }
+        }
+
+        private static Texture2D LoadTexture(string logo)
+        {
+            var assambly = typeof(LoginPanel).Assembly;
+            using (var stream = assambly.GetManifestResourceStream(logo))
+            {
+                if (stream == null)
+                {
+                    DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, $"No se pudo cargar el icono: {logo}");
+                    return null;
+                }
+                byte[] data = new byte[stream.Length];
+                stream.Read(data, 0, data.Length);
+                Texture2D texture = new Texture2D(2, 2);
+                texture.LoadImage(data);
+                return texture;
             }
         }
     }

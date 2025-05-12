@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="AtributosJG.cs" />
     <Compile Include="AutenticacionJG.cs" />
-    <Compile Include="ConexionbG.cs" />
+    <Compile Include="Conexion_bG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

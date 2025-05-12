@@ -14,7 +14,7 @@ namespace ModCitiesSkylines
     {
         public string Name // Permite darle el nombre al mod
         {
-            get { return "bGames-Cities:Skyline"; }
+            get { return "LifeSync Games-Cities:Skyline"; }
         }
         public string Description // Permite darle una descripción al mod
         {
