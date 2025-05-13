@@ -14,7 +14,7 @@ namespace ModCitiesSkylines
     public static class DineroExtraView
     {
         // Método para mostrar mensajes personalizado
-        public static void MostrarMensajeDinero(string titulo, string mensaje, string dineroIcono)
+        public static void DineroPanel(string titulo, string mensaje, string dineroIcono)
         {
             UIView view = UIView.GetAView();
 
@@ -95,8 +95,8 @@ namespace ModCitiesSkylines
         // Animación de desaparición
         private static IEnumerator CerrarMensaje(UIPanel panel, float segundos)
         {
-            yield return new WaitForSeconds(segundos);
-            yield return panel.StartCoroutine(FadeOut(panel, 0.5f));
+            yield return new WaitForSeconds(segundos); // Esperar 4 segundos
+            yield return panel.StartCoroutine(FadeOut(panel, 0.5f)); // Desvanecer el panel
         }
 
         // Aparición del panel con efecto de desvanecimiento (fade-in)

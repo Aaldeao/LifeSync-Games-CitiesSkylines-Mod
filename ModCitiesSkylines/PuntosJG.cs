@@ -19,64 +19,70 @@ namespace ModCitiesSkylines
         // Tecla para ver los puntos del jugador
         private const KeyCode Puntos_de_Usuario = KeyCode.F3;
 
-        // Variables para almacenar el mensaje de la API
-        private string puntosAPI2 = null;
-        private string tituloAPI2 = null;
+        private volatile bool mostrarPerfil = false; // señal para mostrar el perfil
+        private volatile bool mostrarError = false; // señal para mostrar errores
 
-        private int? puntos = null; // Variable para almacenar los puntos del jugador
+        private int totalPuntos = 0; // Total de puntos del jugador
+        private string nombreUsuario = ""; // Nombre del usuario
+        private string mensajeError = null; // Mensaje de error
+        private string tituloError = null; // Título del error
+        private List<PerfilJGView.AtributoUsuario> atributosPerfil = new List<PerfilJGView.AtributoUsuario>();
 
         // Metodo que se ejecuta una vez por frame
         public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
         {
-            // Muestra mensaje
-            if (!string.IsNullOrEmpty(puntosAPI2))
-            {
-                Mensajes2(tituloAPI2, puntosAPI2);
-                puntosAPI2 = null;
-                tituloAPI2 = null;
-            }
-
             if (Input.GetKeyDown(Puntos_de_Usuario))
             {
                 ObtenerPuntos();
             }
+
+            // Mostrar el perfil en el hilo principal
+            if (mostrarPerfil)
+            {
+                PerfilJGView.PerfilPanel(nombreUsuario, totalPuntos, atributosPerfil);
+                mostrarPerfil = false;
+            }
+
+            // Mostrar errores en el hilo principal
+            if (mostrarError)
+            {
+                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel")
+                    .SetMessage(tituloError ?? "Error", mensajeError ?? "Ha ocurrido un error.", false);
+                mostrarError = false;
+                mensajeError = null;
+                tituloError = null;
+            }
         }
 
-        // Metodo para obtener los puntos del jugador en un hilo secundario
+        // Método para obtener los puntos del jugador en un hilo secundario
         public void ObtenerPuntos()
         {
             Thread t = new Thread(() =>
             {
                 var datosJ = AtributosJG.ObtenerPuntosdelJugador();
-                StringBuilder mensajePuntos = new StringBuilder();
 
-                if (datosJ.Puntos.HasValue)
+                if (datosJ.PuntosT.HasValue)
                 {
-                    mensajePuntos.AppendLine($"{datosJ.Mensaje}\n");
-
-                    foreach (var atributo in datosJ.Atributos)
+                    atributosPerfil = datosJ.Atributos.Select(a => new PerfilJGView.AtributoUsuario
                     {
-                        mensajePuntos.AppendLine($"{atributo.Nombre} : {(atributo.Punto == 0 ? "Sin puntos" : $"{atributo.Punto} {(atributo.Punto == 1 ? "pt" : "pts")}")}");
-                    }
+                        Atributo = a.Nombre,
+                        Punto = a.Punto ?? 0
+                    }).ToList();
+
+                    totalPuntos = datosJ.PuntosT.Value;
+                    nombreUsuario = LoginPanel.nombreJG;
+                    mostrarPerfil = true; // señal para mostrar el perfil en el siguiente frame
                 }
                 else
                 {
-                    mensajePuntos.AppendLine(datosJ.Mensaje); // mensaje de error o sin puntos
+                    mensajeError = datosJ.Mensaje;
+                    tituloError = datosJ.Titulo;
+                    mostrarError = true;
                 }
-
-                // Mensaje de sobre la conexion con la API
-                puntosAPI2 = mensajePuntos.ToString();
-                tituloAPI2 = datosJ.Titulo;
-                puntos = datosJ.Puntos; // Almacena los puntos del jugador
             });
 
             t.IsBackground = true;
             t.Start();
-        }
-
-        private void Mensajes2(string titulo, string mensaje)
-        {
-            UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
         }
     }
 }

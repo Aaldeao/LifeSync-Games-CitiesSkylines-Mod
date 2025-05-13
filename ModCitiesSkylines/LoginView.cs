@@ -10,6 +10,7 @@ using UnityEngine;
 using ColossalFramework.UI;
 using ColossalFramework.Plugins;
 using bGamesAPI;
+using System.Globalization;
 
 
 namespace ModCitiesSkylines
@@ -26,14 +27,14 @@ namespace ModCitiesSkylines
 
     public static class LoginPanel
     {
-        private static UIPanel panelLogin;
-        private static UITextField usuario;
-        private static UITextField password;
-        private static UIButton loginButton;
-        private static UIButton closeButton;
-        private static UIButton closeXButton;
+        public static UIPanel panelLogin;
+        public static UITextField usuario;
+        public static UITextField password;
+        public static UIButton loginButton;
+        public static UIButton closeXButton;
 
         public static int? idJugador = null; // Donde se almacenará el ID del jugador
+        public static string nombreJG = null; // Donde se almacenará el nombre del jugador
 
         public static void CrearPanel()
         {
@@ -130,23 +131,12 @@ namespace ModCitiesSkylines
                 IniciarSesion();
             };
 
-            // Botón de cerrar sesión
-            //closeButton = panelLogin.AddUIComponent<UIButton>();
-            //closeButton.text = "Cerrar Sesión";
-            //closeButton.relativePosition = new Vector2(310f, 200f);
-            //closeButton.size = new Vector2(270f, 30f);
-            //EstiloBotones(closeButton);
-            //closeButton.eventClick += (component, eventParam) =>
-            //{
-                //CerrarSesion();
-                //CerrarLogin();
-            //};
-
             // Botón de cerrar el panel
             closeXButton = panelLogin.AddUIComponent<UIButton>();
-            closeXButton.text = "X";
+            closeXButton.normalBgSprite = "buttonclose";
+            closeXButton.hoveredBgSprite = "buttonclosehover";
+            closeXButton.pressedBgSprite = "buttonclosepressed";
             closeXButton.size = new Vector2(30f, 30f);
-            EstiloBotones(closeXButton);
             closeXButton.relativePosition = new Vector2(panelLogin.width - 35f, 5f);
             closeXButton.eventClick += (component, eventParam) =>
             {
@@ -154,9 +144,11 @@ namespace ModCitiesSkylines
             };
 
 
-            // Enter para el campo de usuario y contraseña
-            usuario.eventKeyDown += (component, eventParam) => Enter(component, eventParam);
-            password.eventKeyDown += (component, eventParam) => Enter(component, eventParam);
+            // Teclas para el login (Tab y Enter)
+            usuario.eventKeyDown += Teclas;
+            password.eventKeyDown += Teclas;
+            loginButton.eventKeyDown += Teclas;
+            closeXButton.eventKeyDown += Teclas;
         }
 
         // Método para mostrar el panel de login
@@ -164,7 +156,9 @@ namespace ModCitiesSkylines
         {
             if (panelLogin != null)
             {
-                panelLogin.isVisible = !panelLogin.isVisible;
+                panelLogin.isVisible = !panelLogin.isVisible; // Cambia la visibilidad del panel
+
+                // Si el panel está visible, se habilita la interacción
                 if (panelLogin.isVisible)
                 {
                     panelLogin.isInteractive = true;
@@ -178,7 +172,6 @@ namespace ModCitiesSkylines
             boton.normalBgSprite = "ButtonMenu";
             boton.hoveredBgSprite = "ButtonMenuHovered";
             boton.pressedBgSprite = "ButtonMenuPressed";
-            boton.disabledBgSprite = "ButtonMenuDisabled";
             boton.textColor = new Color32(255, 255, 255, 255);
             boton.hoveredTextColor = new Color32(200, 200, 200, 255);
             boton.pressedTextColor = new Color32(150, 150, 150, 255);
@@ -201,6 +194,7 @@ namespace ModCitiesSkylines
             if (resultado.IdJugador.HasValue) 
             {
                 idJugador = resultado.IdJugador.Value;
+                nombreJG = resultado.NombreUsuario;
                 MostrarMensaje("Inicio de sesión exitoso", "Bienvenido a LifeSync Games");
                 panelLogin.Hide();
             }
@@ -210,20 +204,15 @@ namespace ModCitiesSkylines
             }
         }
 
-        // Método para cerrar sesión y limpiar los campos
-        private static void CerrarSesion()
-        {
-            idJugador = null;
-            MostrarMensaje("Cerrar sesión", "Has cerrado tu sesión correctamente.");
-            if (usuario != null) usuario.text = "";
-            if (password != null) password.text = "";
-            panelLogin.Hide();
-        }
-
         // Método para cerrar el panel de login
         private static void CerrarLogin()
         {
-            mostrarLogin();
+            if (panelLogin != null)
+            {
+                panelLogin.isVisible = false;  // Oculta el panel
+                panelLogin.isInteractive = false;  // Desactiva la interacción
+                panelLogin.isEnabled = false;  // Desactiva el panel
+            }
         }
 
         private static void MostrarMensaje(string titulo, string mensaje)
@@ -231,18 +220,40 @@ namespace ModCitiesSkylines
             UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
         }
 
-        // Método para apretar la tecla ENTER
-        private static void Enter(UIComponent component, UIKeyEventParameter eventParam)
+        // Método para apretar la teclas
+        private static void Teclas(UIComponent component, UIKeyEventParameter eventParam)
         {
             if (eventParam.used) return;
 
-            if (eventParam.keycode == KeyCode.Return || eventParam.keycode == KeyCode.KeypadEnter)
+            // Tab de navegación entre campos
+            if (eventParam.keycode == KeyCode.Tab)
             {
-                IniciarSesion();
+                if (component == usuario)
+                {
+                    password.Focus();
+                }
+                else if (component == password)
+                {
+                    usuario.Focus();
+                }
                 eventParam.Use();
+                return;
             }
-        }
 
+            // Enter para iniciar sesión cuando se presiona en el campo de contraseña
+            if ((eventParam.keycode == KeyCode.Return || eventParam.keycode == KeyCode.KeypadEnter) && component == password)
+            {
+                var correo = usuario.text.Trim();
+                var contrasena = password.text.Trim();
+
+                if (!string.IsNullOrEmpty(correo) && !string.IsNullOrEmpty(contrasena)) // Si los campos no están vacíos puede iniciar sesión con el enter
+                {
+                    IniciarSesion();
+                    eventParam.Use();
+                } 
+            }
+
+        }
         private static Texture2D LoadTexture(string logo)
         {
             var assambly = typeof(LoginPanel).Assembly;

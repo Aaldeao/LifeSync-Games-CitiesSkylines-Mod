@@ -44,7 +44,7 @@ namespace ModCitiesSkylines
 
             // Muestra el mensaje cuando se agrega el dinero extra
             string dineroIcono = "ModCitiesSkylines.IconoDinero.png";
-            DineroExtraView.MostrarMensajeDinero(
+            DineroExtraView.DineroPanel(
                 "Dinero Extra",
                 "Has ganado " + dineroReal + " ₡ gracias a tus puntos en LifeSync Games.",
                 dineroIcono);

@@ -67,12 +67,16 @@
     <Compile Include="DineroExtraView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuntosJG.cs" />
+    <Compile Include="PerfilJGView.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="IconoDinero.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ITO-iso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

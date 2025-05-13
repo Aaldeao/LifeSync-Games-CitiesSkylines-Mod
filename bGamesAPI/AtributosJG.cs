@@ -19,7 +19,7 @@ namespace bGamesAPI
         public string Titulo { get; set; } // Para almacenar el título del resultado
         public string Mensaje { get; set; } // Para almacenar el mensaje del resultado
 
-        public int? Puntos { get; set; } // Para almacenar los puntos del jugador
+        public int? PuntosT { get; set; } // Para almacenar los puntos del jugador
         public List<AtributosJugador> Atributos { get; set; } = new List<AtributosJugador>(); // Para almacenar los atributos del jugador
 
     }
@@ -65,7 +65,7 @@ namespace bGamesAPI
 
                         }
                         resultado.Titulo = "Puntos de LifeSync Games";
-                        resultado.Puntos = sumaPuntos;
+                        resultado.PuntosT = sumaPuntos;
                         resultado.Mensaje = sumaPuntos == 1
                             ? $"Tienes {sumaPuntos} punto en LifeSync Games."
                             : $"Tienes {sumaPuntos} puntos en LifeSync Games.";

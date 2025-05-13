@@ -14,6 +14,8 @@ namespace bGamesAPI
         public string Mensaje { get; set; } // Para almacenar el mensaje del resultado
 
         public int? IdJugador { get; set; } // Para almacenar el ID del jugador
+        public string NombreUsuario { get; set; } // Para almacenar el nombre del jugador
+
 
     }
 
@@ -36,6 +38,7 @@ namespace bGamesAPI
 
                     var password = Regex.Match(result, @"""password""\s*:\s*""(.*?)""");
                     var idplayer = Regex.Match(result, @"""id_players""\s*:\s*(\d+)");
+                    var nombre = Regex.Match(result, @"""name""\s*:\s*""(.*?)""");
 
                     // Verificar si el correo electrónico existe
                     if (!idplayer.Success)
@@ -50,6 +53,8 @@ namespace bGamesAPI
                         resultado.Titulo = "Inicio de sesión exitoso";
                         resultado.Mensaje = "Sesión iniciada correctamente.";
                         resultado.IdJugador = int.Parse(idplayer.Groups[1].Value); // Almacena el ID del jugador
+
+                        resultado.NombreUsuario = nombre.Groups[1].Value; // Almacena el nombre del jugador
                     }
                     // Si la contraseña no es correcta
                     else
