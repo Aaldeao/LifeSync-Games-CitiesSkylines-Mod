@@ -29,7 +29,7 @@ namespace ModCitiesSkylines
             // Muestra mensaje de la conexion con la API de bGames
             if (!string.IsNullOrEmpty(mensajeAPI))
             {
-                Mensajes(tituloAPI, mensajeAPI);
+                MensajesConexion(tituloAPI, mensajeAPI);
                 mensajeAPI = null;
                 tituloAPI = null;
             }
@@ -57,7 +57,7 @@ namespace ModCitiesSkylines
             t.Start();
         }
 
-        private void Mensajes(string titulo, string mensaje)
+        private void MensajesConexion(string titulo, string mensaje)
         {
             if (titulo == "Conexión Exitosa")
             {

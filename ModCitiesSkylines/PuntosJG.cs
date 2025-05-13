@@ -19,8 +19,8 @@ namespace ModCitiesSkylines
         // Tecla para ver los puntos del jugador
         private const KeyCode Puntos_de_Usuario = KeyCode.F3;
 
-        private volatile bool mostrarPerfil = false; // señal para mostrar el perfil
-        private volatile bool mostrarError = false; // señal para mostrar errores
+        private volatile bool mostrarPerfil = false; // Bandera compartida entre hilos para mostrar el perfil
+        private volatile bool mostrarError = false; // Bandera compartida entre hilos para mostrar errores
 
         private int totalPuntos = 0; // Total de puntos del jugador
         private string nombreUsuario = ""; // Nombre del usuario

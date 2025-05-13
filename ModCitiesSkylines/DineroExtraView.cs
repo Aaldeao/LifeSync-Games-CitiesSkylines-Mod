@@ -96,20 +96,21 @@ namespace ModCitiesSkylines
         private static IEnumerator CerrarMensaje(UIPanel panel, float segundos)
         {
             yield return new WaitForSeconds(segundos); // Esperar 4 segundos
-            yield return panel.StartCoroutine(FadeOut(panel, 0.5f)); // Desvanecer el panel
+            yield return panel.StartCoroutine(FadeOut(panel, 0.5f)); // Desvanecer el panel en 0.5 segundos
         }
 
         // Aparición del panel con efecto de desvanecimiento (fade-in)
         private static IEnumerator FadeIn(UIPanel panel, float duracion)
         {
             float t = 0;
-            while (t < duracion)
+            while (t < duracion) 
             {
+                // Calcula la opacidad del panel desde 0 a 0.95
                 panel.opacity = Mathf.Lerp(0f, 0.95f, t / duracion);
-                t += Time.deltaTime;
+                t += Time.deltaTime; // Incrementa el tiempo
                 yield return null;
             }
-            panel.opacity = 0.95f;
+            panel.opacity = 0.95f; // Asegúra de que la opacidad sea 0.95 al final
         }
 
         // Desaparición del panel con efecto de desvanecimiento (fade-out)
@@ -117,14 +118,17 @@ namespace ModCitiesSkylines
         {
             float t = 0;
             float inicio = panel.opacity;
+
+            // Desvanece el panel mienstras no se haya alcanzado la duración
             while (t < duracion)
             {
+                // Calcula la opacidad del panel desde su valor inicial a 0
                 panel.opacity = Mathf.Lerp(inicio, 0f, t / duracion);
                 t += Time.deltaTime;
                 yield return null;
             }
-            panel.opacity = 0f;
-            GameObject.Destroy(panel.gameObject);
+            panel.opacity = 0f; // Asegúra de que la opacidad sea 0 al final
+            GameObject.Destroy(panel.gameObject); // Destruye el panel
         }
     }
 }

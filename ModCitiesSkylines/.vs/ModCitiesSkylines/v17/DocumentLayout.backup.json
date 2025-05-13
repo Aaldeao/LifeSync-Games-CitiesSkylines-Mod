@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\perfiljgview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:perfiljgview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\loginview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:loginview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\puntosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:puntosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\conexionbg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:conexionbg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\conexionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:conexionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\dineroextraview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:dineroextraview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,66 +27,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PerfilJGView.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\PerfilJGView.cs",
-              "RelativeDocumentMoniker": "PerfilJGView.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\PerfilJGView.cs*",
-              "RelativeToolTip": "PerfilJGView.cs*",
-              "ViewState": "AgIAADgAAAAAAAAAAAAcwFMAAAA2AAAAAAAAAA==",
+              "Title": "ConexionbG.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\ConexionbG.cs",
+              "RelativeDocumentMoniker": "ConexionbG.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\ConexionbG.cs*",
+              "RelativeToolTip": "ConexionbG.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T22:06:51.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PuntosJG.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\PuntosJG.cs",
-              "RelativeDocumentMoniker": "PuntosJG.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\PuntosJG.cs",
-              "RelativeToolTip": "PuntosJG.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAuwC0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T22:06:21.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ConexionView.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\ConexionView.cs",
-              "RelativeDocumentMoniker": "ConexionView.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\ConexionView.cs",
-              "RelativeToolTip": "ConexionView.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T03:57:37.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DineroExtraView.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\DineroExtraView.cs",
-              "RelativeDocumentMoniker": "DineroExtraView.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\DineroExtraView.cs",
-              "RelativeToolTip": "DineroExtraView.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAgwHAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T03:58:02.256Z",
+              "WhenOpened": "2025-05-13T15:58:03.218Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LoginView.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\LoginView.cs",
-              "RelativeDocumentMoniker": "LoginView.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\LoginView.cs",
-              "RelativeToolTip": "LoginView.cs",
-              "ViewState": "AgIAALMAAAAAAAAAAAA5wNgAAAAAAAAAAAAAAA==",
+              "Title": "ConexionView.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\ConexionView.cs",
+              "RelativeDocumentMoniker": "ConexionView.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\ConexionView.cs",
+              "RelativeToolTip": "ConexionView.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T03:50:51.872Z",
+              "WhenOpened": "2025-05-13T16:00:16.654Z",
               "EditorCaption": ""
             }
           ]

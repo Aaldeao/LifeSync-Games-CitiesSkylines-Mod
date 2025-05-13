@@ -154,6 +154,12 @@ namespace ModCitiesSkylines
         // Método para mostrar el panel de login
         public static void mostrarLogin()
         {
+            if (idJugador.HasValue) // Verifica si ya hay un jugador que ha iniciado sesión
+            {
+                MensajeLogin("LifeSync Games", "Ya has iniciado sesión");
+                return;
+            }
+
             if (panelLogin != null)
             {
                 panelLogin.isVisible = !panelLogin.isVisible; // Cambia la visibilidad del panel
@@ -185,7 +191,7 @@ namespace ModCitiesSkylines
             // Valida que los campos no estén vacíos
             if (string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(contrasena))
             {
-                MostrarMensaje("Campos incompletos", "Por favor complete los campos vacios.");
+                MensajeLogin("Campos incompletos", "Por favor complete los campos vacios.");
                 return;
             }
 
@@ -195,12 +201,12 @@ namespace ModCitiesSkylines
             {
                 idJugador = resultado.IdJugador.Value;
                 nombreJG = resultado.NombreUsuario;
-                MostrarMensaje("Inicio de sesión exitoso", "Bienvenido a LifeSync Games");
+                MensajeLogin("Inicio de sesión exitoso", "Bienvenido a LifeSync Games");
                 panelLogin.Hide();
             }
             else
             {
-                MostrarMensaje(resultado.Titulo, resultado.Mensaje);
+                MensajeLogin(resultado.Titulo, resultado.Mensaje);
             }
         }
 
@@ -215,7 +221,7 @@ namespace ModCitiesSkylines
             }
         }
 
-        private static void MostrarMensaje(string titulo, string mensaje)
+        private static void MensajeLogin(string titulo, string mensaje)
         {
             UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
         }

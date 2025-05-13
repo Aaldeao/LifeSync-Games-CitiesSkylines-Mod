@@ -194,9 +194,9 @@ namespace ModCitiesSkylines
             panelPerfil = null;
 
             // Mostrar un mensaje si lo deseas
-            MostrarMensaje("Cerrar sesión", "Has cerrado sesión correctamente.");
+            MensajePerfil("Cerrar sesión", "Has cerrado sesión correctamente.");
         }
-        private static void MostrarMensaje(string titulo, string mensaje)
+        private static void MensajePerfil(string titulo, string mensaje)
         {
             UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
         }
