@@ -21,7 +21,10 @@ namespace ModCitiesSkylines
         public override void OnLevelLoaded(LoadMode mode)
         {
             base.OnLevelLoaded(mode);
-            LoginPanel.CrearPanel(); // Llama al método que construye el panel del login
+            if (mode == LoadMode.NewGame || mode == LoadMode.LoadGame)
+            {
+                LoginPanel.CrearPanel(); // Llama al método que construye el panel del login
+            }
         }
     }
 
@@ -36,6 +39,8 @@ namespace ModCitiesSkylines
         public static int? idJugador = null; // Donde se almacenará el ID del jugador
         public static string nombreJG = null; // Donde se almacenará el nombre del jugador
 
+        public static bool inicioSesion => idJugador.HasValue; // Verifica si el jugador ha iniciado sesión
+
         public static void CrearPanel()
         {
             var view = UIView.GetAView();
@@ -49,9 +54,9 @@ namespace ModCitiesSkylines
 
             // Crear el panel de login
             panelLogin = view.AddUIComponent(typeof(UIPanel)) as UIPanel;
-            panelLogin.backgroundSprite = "InfoDisplay";
+            panelLogin.backgroundSprite = "MenuPanel2";
             panelLogin.opacity = 0.95f;
-            panelLogin.size = new Vector2(600f, 280f); // Tamaño del panel
+            panelLogin.size = new Vector2(600f, 250f); // Tamaño del panel
             panelLogin.relativePosition = new Vector2((view.fixedWidth - panelLogin.width) / 2, (view.fixedHeight - panelLogin.height) / 2);
             panelLogin.isInteractive = true; // Permitir la interacción con el panel
             panelLogin.canFocus = true;
@@ -63,7 +68,7 @@ namespace ModCitiesSkylines
             tituloLabel.text = "LifeSync Games";
             tituloLabel.textScale = 1.6f; // Tamaño del texto
             tituloLabel.textColor = new Color32(255, 255, 255, 255);
-            tituloLabel.relativePosition = new Vector2((panelLogin.width - tituloLabel.width) / 2f, 25f);
+            tituloLabel.relativePosition = new Vector2((panelLogin.width - tituloLabel.width) / 2f, 10f);
 
             // Cargar textura e insertar icono
             Texture2D texture = LoadTexture("ModCitiesSkylines.ITO-iso.png");
@@ -71,18 +76,18 @@ namespace ModCitiesSkylines
             {
                 UITextureSprite logoSprite = panelLogin.AddUIComponent<UITextureSprite>();
                 logoSprite.texture = texture;
-                logoSprite.size = new Vector2(75f, 60f); // Ajustar el tamaño del logo
-                logoSprite.relativePosition = new Vector2(20f, 15f); // Posición izquierda y vertical centrada con el título
+                logoSprite.size = new Vector2(50f, 35f); // Ajusta el tamaño del logo
+                logoSprite.relativePosition = new Vector2(20f, 5f); // Posicion del logo
             }
 
             // Titulo del campo de texto para el correo
             UILabel tituloLabelCorreo = panelLogin.AddUIComponent<UILabel>();
             tituloLabelCorreo.text = "Correo:";
-            tituloLabelCorreo.relativePosition = new Vector2(20f, 85f); // Ajusta el título del correo
+            tituloLabelCorreo.relativePosition = new Vector2(20f, 65f); // Ajusta el título del correo
 
             // Campo de texto para el correo
             usuario = panelLogin.AddUIComponent<UITextField>();
-            usuario.relativePosition = new Vector2(20f, 105f); // Ajusta la posición del campo de texto
+            usuario.relativePosition = new Vector2(20f, 85f); // Ajusta la posición del campo de texto
             usuario.size = new Vector2(560f, 30f);
             usuario.text = "";
             usuario.isInteractive = true;
@@ -100,11 +105,11 @@ namespace ModCitiesSkylines
             // Titulo del campo de texto para la contraseña
             UILabel tituloLabelContrasena = panelLogin.AddUIComponent<UILabel>();
             tituloLabelContrasena.text = "Contraseña:";
-            tituloLabelContrasena.relativePosition = new Vector2(20f, 150f); // Ajusta el título de la contraseña
+            tituloLabelContrasena.relativePosition = new Vector2(20f, 125f); // Ajusta el título de la contraseña
 
             // Campo de texto para la contraseña
             password = panelLogin.AddUIComponent<UITextField>();
-            password.relativePosition = new Vector2(20f, 170f);  // Ajusta la posición del campo de texto
+            password.relativePosition = new Vector2(20f, 145f);  // Ajusta la posición del campo de texto
             password.size = new Vector2(560f, 30f);
             password.text = "";
             password.isPasswordField = true;
@@ -123,7 +128,7 @@ namespace ModCitiesSkylines
             // Botón de iniciar sesión
             loginButton = panelLogin.AddUIComponent<UIButton>();
             loginButton.text = "Iniciar Sesión";
-            loginButton.relativePosition = new Vector2((panelLogin.width - 270) / 2, 225f); // Ajusta la posición del botón
+            loginButton.relativePosition = new Vector2((panelLogin.width - 270) / 2, 195f); // Ajusta la posición del botón
             loginButton.size = new Vector2(270f, 30f);
             EstiloBotones(loginButton);
             loginButton.eventClick += (component, eventParam) =>
@@ -154,6 +159,7 @@ namespace ModCitiesSkylines
         // Método para mostrar el panel de login
         public static void mostrarLogin()
         {
+
             if (idJugador.HasValue) // Verifica si ya hay un jugador que ha iniciado sesión
             {
                 MensajeLogin("LifeSync Games", "Ya has iniciado sesión");
@@ -201,7 +207,10 @@ namespace ModCitiesSkylines
             {
                 idJugador = resultado.IdJugador.Value;
                 nombreJG = resultado.NombreUsuario;
-                MensajeLogin("Inicio de sesión exitoso", "Bienvenido a LifeSync Games");
+
+                //MensajeLogin("Inicio de sesión exitoso", "Bienvenido a LifeSync Games");
+
+                PuntosJG.ObtenerPuntos();
                 panelLogin.Hide();
             }
             else

@@ -14,36 +14,26 @@ using bGamesAPI;
 
 namespace ModCitiesSkylines
 {
-    public class PuntosJG : ThreadingExtensionBase
+    public class PuntosJG
     {
-        // Tecla para ver los puntos del jugador
-        private const KeyCode Puntos_de_Usuario = KeyCode.F3;
+        private static volatile bool mostrarPerfil = false; // Bandera compartida entre hilos para mostrar el perfil
+        private static volatile bool mostrarError = false; // Bandera compartida entre hilos para mostrar errores
 
-        private volatile bool mostrarPerfil = false; // Bandera compartida entre hilos para mostrar el perfil
-        private volatile bool mostrarError = false; // Bandera compartida entre hilos para mostrar errores
+        private static int totalPuntos = 0; // Total de puntos del jugador
+        private static string nombreUsuario = ""; // Nombre del usuario
+        private static string mensajeError = null; // Mensaje de error
+        private static string tituloError = null; // Título del error
+        private static List<PerfilJGView.AtributoUsuario> atributosPerfil = new List<PerfilJGView.AtributoUsuario>();
 
-        private int totalPuntos = 0; // Total de puntos del jugador
-        private string nombreUsuario = ""; // Nombre del usuario
-        private string mensajeError = null; // Mensaje de error
-        private string tituloError = null; // Título del error
-        private List<PerfilJGView.AtributoUsuario> atributosPerfil = new List<PerfilJGView.AtributoUsuario>();
-
-        // Metodo que se ejecuta una vez por frame
-        public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
+        // Método que se ejecuta una vez por frame
+        public static void Actualizar(float realTimeDelta, float simulationTimeDelta)
         {
-            if (Input.GetKeyDown(Puntos_de_Usuario))
-            {
-                ObtenerPuntos();
-            }
-
-            // Mostrar el perfil en el hilo principal
             if (mostrarPerfil)
             {
                 PerfilJGView.PerfilPanel(nombreUsuario, totalPuntos, atributosPerfil);
                 mostrarPerfil = false;
             }
 
-            // Mostrar errores en el hilo principal
             if (mostrarError)
             {
                 UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel")
@@ -55,7 +45,7 @@ namespace ModCitiesSkylines
         }
 
         // Método para obtener los puntos del jugador en un hilo secundario
-        public void ObtenerPuntos()
+        public static void ObtenerPuntos()
         {
             Thread t = new Thread(() =>
             {
