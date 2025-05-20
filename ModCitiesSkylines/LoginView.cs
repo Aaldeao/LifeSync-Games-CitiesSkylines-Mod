@@ -28,6 +28,7 @@ namespace ModCitiesSkylines
         }
     }
 
+    // Cllase para crear el panel de login
     public static class LoginPanel
     {
         public static UIPanel panelLogin;
@@ -162,7 +163,7 @@ namespace ModCitiesSkylines
 
             if (idJugador.HasValue) // Verifica si ya hay un jugador que ha iniciado sesión
             {
-                MensajeLogin("LifeSync Games", "Ya has iniciado sesión");
+                MsgView.PanelMSG("LifeSync Games", "Ya has iniciado sesión.");
                 return;
             }
 
@@ -179,6 +180,7 @@ namespace ModCitiesSkylines
             }
         }
 
+        // Estilo de los botones que se usan en el panel de login
         private static void EstiloBotones(UIButton boton)
         {
             boton.normalBgSprite = "ButtonMenu";
@@ -189,6 +191,7 @@ namespace ModCitiesSkylines
             boton.pressedTextColor = new Color32(150, 150, 150, 255);
         }
 
+        // Método para iniciar sesión
         private static void IniciarSesion()
         {
             var correo = usuario.text.Trim();
@@ -208,9 +211,9 @@ namespace ModCitiesSkylines
                 idJugador = resultado.IdJugador.Value;
                 nombreJG = resultado.NombreUsuario;
 
-                //MensajeLogin("Inicio de sesión exitoso", "Bienvenido a LifeSync Games");
-
+                // Muestra el perfil del jugador
                 PuntosJG.ObtenerPuntos();
+
                 panelLogin.Hide();
             }
             else
@@ -230,6 +233,7 @@ namespace ModCitiesSkylines
             }
         }
 
+        // Método para mostrar mensajes de error
         private static void MensajeLogin(string titulo, string mensaje)
         {
             UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);

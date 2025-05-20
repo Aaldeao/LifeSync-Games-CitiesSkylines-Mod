@@ -8,22 +8,26 @@ using UnityEngine;
 
 namespace ModCitiesSkylines
 {
-    public class Puntos_JG : ThreadingExtensionBase
+    // Clase que maneja la visualización de los puntos del jugador
+    public class PuntoJG : ThreadingExtensionBase
     {
+
         // Tecla para ver los puntos del jugador
-        private const KeyCode Puntos_de_Usuario = KeyCode.F3;
+        //private const KeyCode Puntos_de_Usuario = KeyCode.F3;
+        /* --> SI DESO QUE FUNCIONE LA TECLA F3 DEBE IR DENTRO DEL METODO ONUPDATE
+        if (Input.GetKeyDown(Puntos_de_Usuario))
+        {
+            PuntosJG.ObtenerPuntos();
+        }
+        */
 
         // Metodo que se ejecuta una vez por frame
         public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
-        {
-            if (Input.GetKeyDown(Puntos_de_Usuario))
-            {
-                PuntosJG.ObtenerPuntos();
-            }
-
+        {   
             PuntosJG.Actualizar(realTimeDelta, simulationTimeDelta);
         }
 
 
     }
+    
 }

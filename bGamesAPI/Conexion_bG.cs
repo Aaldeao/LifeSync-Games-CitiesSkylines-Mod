@@ -41,7 +41,7 @@ namespace bGamesAPI
                         string secondMessage = match.Groups[1].Value; // Obtener el mensaje
                         if (secondMessage == "Confirmado")
                         {
-                            resultado.Titulo = "Conexión Exitosa";
+                            resultado.Titulo = "LifeSync Games";
                             resultado.Mensaje = "¡La conexión con LifeSync Games es confirmada exitosamente!";
                         }
                         else

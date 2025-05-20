@@ -43,14 +43,14 @@ namespace bGamesAPI
                     // Verificar si el correo electrónico existe
                     if (!idplayer.Success)
                     {
-                        resultado.Titulo = "Inicio de sesión";
+                        resultado.Titulo = "LifeSync Games";
                         resultado.Mensaje = "Correo no encontrado.";
                         return resultado;
                     }
                     // Verifica si la contraseña es correcta 
                     if (password.Success && password.Groups[1].Value == contrasena)
                     {
-                        resultado.Titulo = "Inicio de sesión exitoso";
+                        resultado.Titulo = "LifeSync Games";
                         resultado.Mensaje = "Sesión iniciada correctamente.";
                         resultado.IdJugador = int.Parse(idplayer.Groups[1].Value); // Almacena el ID del jugador
 
@@ -59,7 +59,7 @@ namespace bGamesAPI
                     // Si la contraseña no es correcta
                     else
                     {
-                        resultado.Titulo = "Inicio de sesión";
+                        resultado.Titulo = "LifeSync Games";
                         resultado.Mensaje = "Contraseña incorrecta.";
 
                     }

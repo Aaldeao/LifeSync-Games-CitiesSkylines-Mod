@@ -10,6 +10,7 @@ using ColossalFramework.Plugins;
 
 namespace ModCitiesSkylines
 {
+    // Clase para mostrar el perfil del jugador
     public class PerfilJGView
     {
         // Clase interna para representar los atributos del usuario
@@ -17,6 +18,8 @@ namespace ModCitiesSkylines
         {
             public string Atributo { get; set; }
             public int Punto { get; set; }
+
+            public int IdAtributo { get; set; }
         }
 
         private static UIPanel panelPerfil;
@@ -24,6 +27,7 @@ namespace ModCitiesSkylines
         private static UIButton closeBtn;
         private static UILabel totalP;
         private static UIButton closeButton;
+        private static UIButton btnCanjearPuntos;
 
         public static void PerfilPanel(string nombreUsuario, int totalPuntos, List<AtributoUsuario> atributos)
         {
@@ -76,7 +80,7 @@ namespace ModCitiesSkylines
             closeBtn.eventClick += (component, param) =>
             {
                 panelPerfil.isVisible = false;  // Oculta el panel
-            }; 
+            };
 
             // Botón de cerrar sesión
             closeButton = panelPerfil.AddUIComponent<UIButton>();
@@ -87,6 +91,17 @@ namespace ModCitiesSkylines
             closeButton.eventClick += (component, eventParam) =>
             {
                 CerrarSesion();
+            };
+
+            // Botón de canjear puntos
+            btnCanjearPuntos = panelPerfil.AddUIComponent<UIButton>();
+            btnCanjearPuntos.text = "Canjear Puntos";
+            btnCanjearPuntos.size = new Vector2(150f, 30f);
+            btnCanjearPuntos.relativePosition = new Vector2(10f, panelPerfil.height - btnCanjearPuntos.height - 10f);
+            EstiloBtn(btnCanjearPuntos);
+            btnCanjearPuntos.eventClick += (component, eventParam) =>
+            {
+                CanjePuntosPanel.CanjePanel(atributos, totalPuntos);
             };
 
             // Tarjetas de atributos
@@ -145,11 +160,29 @@ namespace ModCitiesSkylines
 
             // Total de puntos 
             totalP = panelPerfil.AddUIComponent<UILabel>();
-            totalP.text = "Total: " + totalPuntos + " puntos";
+            totalP.text = $"Total: {totalPuntos} {(totalPuntos == 1 ? "punto" : "puntos")}";
             totalP.textScale = 1.1f;
             totalP.autoSize = true;
             totalP.relativePosition = new Vector2((panelPerfil.width - totalP.width) / 2f, 205f);
         }
+
+        // Método para mostrar el perfil del usuario
+        public static void MostrarPerfil(string nombreUsuario, int totalPuntos, List<AtributoUsuario> atributos)
+        {
+            // Verifica si el panel ya existe y está visible
+            if (panelPerfil == null || !panelPerfil.isVisible)
+            {
+                PerfilPanel(nombreUsuario, totalPuntos, atributos);
+            }
+            //
+            else
+            {
+                // Si el panel ya existe, simplemente alterna su visibilidad
+                panelPerfil.isVisible = !panelPerfil.isVisible;
+            }
+        }
+        
+        // Método para cargar el icono
         private static Texture2D LoadTexture(string logo)
         {
             var assambly = typeof(LoginPanel).Assembly;
@@ -167,6 +200,8 @@ namespace ModCitiesSkylines
                 return texture;
             }
         }
+
+        // Estilo del botón
         private static void EstiloBtn(UIButton boton)
         {
             boton.normalBgSprite = "ButtonMenu";
@@ -185,20 +220,17 @@ namespace ModCitiesSkylines
             if (LoginPanel.usuario != null) LoginPanel.usuario.text = "";  // Limpia el campo de texto del correo del usuario en el login
             if (LoginPanel.password != null) LoginPanel.password.text = "";  // Limpia el campo de texto de la contraseña en el login
 
-            // Limpia los datos del perfil
-            userLabel.text = "Usuario Desconocido";
-            totalP.text = "Total: 0 puntos";
-
             // Elimina el panel de perfil
             GameObject.Destroy(panelPerfil.gameObject);
             panelPerfil = null;
 
-            // Mostrar un mensaje si lo deseas
-            MensajePerfil("Cerrar sesión", "Has cerrado sesión correctamente.");
+            // Mostrar un mensaje al cerrar sesión
+            MensajePerfil("LifeSync Games", "Has cerrado sesión correctamente.");
         }
         private static void MensajePerfil(string titulo, string mensaje)
         {
-            UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
+            MsgView.PanelMSG(titulo, mensaje);
+            //UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
         }
 
     }

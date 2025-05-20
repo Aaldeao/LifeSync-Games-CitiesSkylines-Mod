@@ -61,10 +61,12 @@ namespace ModCitiesSkylines
         {
             if (titulo == "Conexión Exitosa")
             {
-                ConexionView.PanelConexio(titulo, mensaje);
+                // Muestra un mensaje personalizado si la conexión es exitosa
+                MsgView.PanelMSG(titulo, mensaje);
             }
             else
             {
+                // Muestra un mensaje de error si la conexión falla
                 UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(titulo, mensaje, false);
             }
         }

@@ -30,7 +30,7 @@ namespace ModCitiesSkylines
         {
             if (mostrarPerfil)
             {
-                PerfilJGView.PerfilPanel(nombreUsuario, totalPuntos, atributosPerfil);
+                PerfilJGView.MostrarPerfil(nombreUsuario, totalPuntos, atributosPerfil);
                 mostrarPerfil = false;
             }
 
@@ -55,6 +55,7 @@ namespace ModCitiesSkylines
                 {
                     atributosPerfil = datosJ.Atributos.Select(a => new PerfilJGView.AtributoUsuario
                     {
+                        IdAtributo = a.Id ?? -1,
                         Atributo = a.Nombre,
                         Punto = a.Punto ?? 0
                     }).ToList();

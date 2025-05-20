@@ -3,26 +3,30 @@
   "WorkspaceRootPath": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\conexion_bg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:conexion_bg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\atributosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:atributosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\autenticacionjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\canjearpts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:canjearpts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\autenticacionjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:autenticacionjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\atributosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:atributosjg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\bgamesapi\\conexion_bg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3E045EA-C9DD-49E5-A728-41C19EEB0462}|bGamesAPI.csproj|solutionrelative:conexion_bg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 534,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,46 +34,60 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "Conexion_bG.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Conexion_bG.cs",
+              "RelativeDocumentMoniker": "Conexion_bG.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Conexion_bG.cs",
+              "RelativeToolTip": "Conexion_bG.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA5wDUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T22:30:29.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AtributosJG.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
+              "RelativeDocumentMoniker": "AtributosJG.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
+              "RelativeToolTip": "AtributosJG.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAIwFsAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T22:54:44.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AutenticacionJG.cs",
               "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AutenticacionJG.cs",
               "RelativeDocumentMoniker": "AutenticacionJG.cs",
               "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AutenticacionJG.cs",
               "RelativeToolTip": "AutenticacionJG.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAcwE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAUwD0AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T23:03:05.555Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AtributosJG.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
-              "RelativeDocumentMoniker": "AtributosJG.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
-              "RelativeToolTip": "AtributosJG.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CanjearPts.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\CanjearPts.cs",
+              "RelativeDocumentMoniker": "CanjearPts.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\CanjearPts.cs*",
+              "RelativeToolTip": "CanjearPts.cs*",
+              "ViewState": "AgIAACcAAAAAAAAAAAAIwEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T22:54:44.948Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Conexion_bG.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Conexion_bG.cs",
-              "RelativeDocumentMoniker": "Conexion_bG.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Conexion_bG.cs",
-              "RelativeToolTip": "Conexion_bG.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T22:30:29.497Z",
+              "WhenOpened": "2025-05-20T03:43:11.27Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedHeight": 18,
+          "DockedWidth": 200,
           "SelectedChildIndex": -1,
           "Children": [
             {

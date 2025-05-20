@@ -59,17 +59,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BotonbG.cs" />
+    <Compile Include="CanjePtsView.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ConexionbG.cs" />
-    <Compile Include="ConexionView.cs" />
+    <Compile Include="MsgView.cs" />
     <Compile Include="DineroExtra.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="LoginView.cs" />
-    <Compile Include="DineroExtraView.cs" />
+    <Compile Include="DineroView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuntosJG.cs" />
     <Compile Include="PerfilJGView.cs" />
-    <Compile Include="Puntos_JG.cs" />
+    <Compile Include="PuntoJG.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="IconoDinero.png" />

@@ -6,6 +6,8 @@ using System.Net;
 using System.Text;
 using ModCitiesSkylines;
 using System.Text.RegularExpressions;
+using bGamesAPI;
+using System.Xml.Linq;
 
 namespace bGamesAPI
 {
@@ -13,6 +15,7 @@ namespace bGamesAPI
     {
         public string Nombre { get; set; } // Para almacenar el nombre del atributo
         public int? Punto { get; set; } // Para almacenar el valor del atributo
+        public int? Id { get; set; } // Para almacenar el id del atributo
     }
     public class ResultadosAtributos
     {
@@ -35,7 +38,7 @@ namespace bGamesAPI
                 // Verificar si el jugador ha iniciado sesión
                 if (!LoginPanel.idJugador.HasValue) // si el idJugador es null es porque no se ha iniciado sesión
                 {
-                    resultado.Titulo = "Puntos de LifeSync Games";
+                    resultado.Titulo = "LifeSync Games";
                     resultado.Mensaje = "No se ha iniciado sesión.";
                     return resultado;
                 }
@@ -50,43 +53,47 @@ namespace bGamesAPI
                     // Leer la respuesta de la API
                     string result = reader.ReadToEnd();
 
+                    var ids = Regex.Matches(result, @"""id_attributes""\s*:\s*(\d+)"); // Expresión regular para extraer el id del atributo
                     var name = Regex.Matches(result, @"""name""\s*:\s*""(.*?)"""); // Expresión regular para extraer el nombre del atributo
                     var datos = Regex.Matches(result, @"""data""\s*:\s*(\d+)"); // Expresión regular para extraer los datos buscando el valor de "data"
-                    
+
                     int sumaPuntos = 0;
-                    if (name.Count == datos.Count && datos.Count>0)
+
+                    if (ids.Count == name.Count && name.Count == datos.Count && datos.Count > 0)
                     {
                         for (int i = 0; i < datos.Count; i++)
                         {
+                            int id = int.Parse(ids[i].Groups[1].Value); // Obtener el id del atributo
                             string nombre = name[i].Groups[1].Value; // Obtener el nombre del atributo
                             int punto = int.Parse(datos[i].Groups[1].Value); // Obtener el valor del atributo
                             sumaPuntos += punto;
-                            resultado.Atributos.Add(new AtributosJugador { Nombre = nombre, Punto = punto }); // Agregar el atributo a la lista
 
+                            // Agregar el atributo a la lista de atributos con el id, nombre y punto 
+                            resultado.Atributos.Add(new AtributosJugador
+                            {
+                                Id = id,               
+                                Nombre = nombre,
+                                Punto = punto
+                            }); 
                         }
-                        resultado.Titulo = "Puntos de LifeSync Games";
-                        resultado.PuntosT = sumaPuntos;
-                        resultado.Mensaje = sumaPuntos == 1
-                            ? $"Tienes {sumaPuntos} punto en LifeSync Games."
-                            : $"Tienes {sumaPuntos} puntos en LifeSync Games.";
 
+                        resultado.Titulo = "LifeSync Games";
+                        resultado.PuntosT = sumaPuntos;
                     }
                     else
                     {
-                        resultado.Titulo = "Sin puntos en LifeSync Games";
-                        resultado.Mensaje = "No cuentas con puntos en tu perfil de LifeSync Games.";
+                        resultado.Titulo = "LifeSync Games";
+                        resultado.Mensaje = "No se pudieron leer correctamente los atributos del jugador.";
                     }
-
                 }
             }
             catch (Exception ex)
             {
-                // Manejar la excepción si la conexión falla
                 resultado.Titulo = "Error de conexión";
                 resultado.Mensaje = "Error de conexión: " + ex.Message;
-
             }
-            return resultado; // Devolver el resultado de la conexión
+
+            return resultado;
         }
     }
 }

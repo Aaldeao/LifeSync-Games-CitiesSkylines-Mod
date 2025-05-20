@@ -85,6 +85,12 @@ namespace ModCitiesSkylines
                     // Si no ha iniciado sesión, muestra el panel del login
                     LoginPanel.mostrarLogin();
                 }
+
+                // Si el panel para canjear puntos está abierto, lo cierra
+                if (CanjePuntosPanel.EstaAbierto())
+                {
+                    CanjePuntosPanel.CerrarPanel();
+                }
             };
         }
 

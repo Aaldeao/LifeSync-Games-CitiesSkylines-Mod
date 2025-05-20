@@ -7,6 +7,8 @@ using UnityEngine;
 
 namespace ModCitiesSkylines
 {
+    // Clase para manejar el login del usuario presionando la tecla F2
+    /*
     public class Login : ThreadingExtensionBase
     {
         // Tecla para mostrar el panel de login
@@ -20,5 +22,6 @@ namespace ModCitiesSkylines
             }
         }
     }
+    */
 }
 

@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace ModCitiesSkylines
 {
-    public class ConexionView
+    // Clase para mostrar mensajes personalizados en un panel
+    public class MsgView
     {
-        public static void PanelConexio(string titulo, string mensaje)
+        public static void PanelMSG(string titulo, string mensaje)
         {
             UIView view = UIView.GetAView();
             // Panel principal
             UIPanel panel = view.AddUIComponent(typeof(UIPanel)) as UIPanel;
-            panel.name = "PanelConexion";
             panel.backgroundSprite = "MenuPanel2";
             panel.size = new Vector2(420f, 175f); // Tamaño del panel
             panel.relativePosition = new Vector3((view.fixedWidth - panel.width) / 2, (view.fixedHeight - panel.height) / 2);
@@ -34,7 +34,7 @@ namespace ModCitiesSkylines
             // Mensaje
             UILabel messageLabel = panel.AddUIComponent<UILabel>();
             messageLabel.text = mensaje;
-            messageLabel.textScale = 1.2f; // Tamaño del texto
+            messageLabel.textScale = 1.0f; // Tamaño del texto
             messageLabel.wordWrap = true;
             messageLabel.autoSize = false;
             messageLabel.size = new Vector2(panel.width - 40, 80f);
