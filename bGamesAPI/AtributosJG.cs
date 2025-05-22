@@ -57,7 +57,7 @@ namespace bGamesAPI
                     var name = Regex.Matches(result, @"""name""\s*:\s*""(.*?)"""); // Expresión regular para extraer el nombre del atributo
                     var datos = Regex.Matches(result, @"""data""\s*:\s*(\d+)"); // Expresión regular para extraer los datos buscando el valor de "data"
 
-                    int sumaPuntos = 0;
+                    int sumaPuntos = 0; // Variable para almacenar la suma total de los puntos
 
                     if (ids.Count == name.Count && name.Count == datos.Count && datos.Count > 0)
                     {
@@ -78,7 +78,7 @@ namespace bGamesAPI
                         }
 
                         resultado.Titulo = "LifeSync Games";
-                        resultado.PuntosT = sumaPuntos;
+                        resultado.PuntosT = sumaPuntos; // Almacenar la suma total de los puntos
                     }
                     else
                     {

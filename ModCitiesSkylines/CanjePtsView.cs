@@ -54,23 +54,60 @@ namespace ModCitiesSkylines
                 lbl.text = $"{atributo.Atributo} ({atributo.Punto}):";
                 lbl.relativePosition = new Vector2(20f, y);
 
+                // Boton menos
+                UIButton btnMenos = panelCanje.AddUIComponent<UIButton>();
+                btnMenos.text = "-";
+                btnMenos.size = new Vector2(28f, 25f);
+                btnMenos.relativePosition = new Vector2(250f, y - 5f);
+                EstiloBtn(btnMenos);
+
                 UITextField input = panelCanje.AddUIComponent<UITextField>();
-                input.size = new Vector2(100f, 25f);
-                input.relativePosition = new Vector2(250f, y);
+                input.size = new Vector2(50f, 25f);
+                input.relativePosition = new Vector2(280f, y - 5f);
                 input.numericalOnly = true;
-                input.text = "";
+                input.text = "0";
+                input.readOnly = true;
+                input.isInteractive = false;
                 input.textColor = new Color32(0, 0, 0, 255);
-                input.readOnly = false;
-                input.isInteractive = true;
-                input.canFocus = true;
-                input.builtinKeyNavigation = true;
-                input.eventTextSubmitted += (c, text) => { };
                 input.selectionSprite = "EmptySprite";
                 input.normalBgSprite = "TextFieldPanel";
-                input.hoveredBgSprite = "TextFieldPanelHovered";
-                input.focusedBgSprite = "TextFieldPanelFocused";
                 input.padding = new RectOffset(6, 6, 6, 6);
 
+                // Boton más
+                UIButton btnMas = panelCanje.AddUIComponent<UIButton>();
+                btnMas.text = "+";
+                btnMas.size = new Vector2(28f, 25f);
+                btnMas.relativePosition = new Vector2(335f, y - 5f);
+                EstiloBtn(btnMas);
+
+                // Evento para manejar el clic en el botón "más" y "menos"
+
+                btnMas.eventClick += (component, param) =>
+                {
+                    // Convierte el texto a un número entero y lo guarda en la variable actual
+                    int actual = int.Parse(input.text); // que es un 0 ese valor
+
+                    // Verififica que el número actual(0) sea menor que el máximo permitido
+                    if (actual < atributo.Punto)
+                    {
+                        // Si es menor, incrementa el valor
+                        actual++;
+                        input.text = actual.ToString(); // Actualiza el campo de texto
+                    }
+                };
+                btnMenos.eventClick += (component, param) =>
+                {
+                    int actual = int.Parse(input.text);
+                    // Verifica que el número actual sea mayor que cero
+                    if (actual > 0)
+                    {
+                        // Si es mayor, disminuye el valor
+                        actual--;
+                        input.text = actual.ToString();
+                    }
+                };
+
+                // Almacena los valores de los puntos que puso que queria canjear por dimension
                 camposPorAtributo[atributo.Atributo] = input;
                 y += 35f;
             }
@@ -151,8 +188,8 @@ namespace ModCitiesSkylines
                     atributosExcedidos.Add(atributo.Atributo);
                 }
 
-                puntosAsignados[atributo.Atributo] = val;
-                sumaDePuntos += val;
+                puntosAsignados[atributo.Atributo] = val; // Almacena los puntos asignados por atributo
+                sumaDePuntos += val; // Suma los puntos asignados
             }
 
             totalcanjear = sumaDePuntos; // Total de puntos a canjear es la suma de los puntos por dimensión
@@ -176,8 +213,9 @@ namespace ModCitiesSkylines
             foreach (var atributo in atributos)
             {
 
+                
                 if (!puntosAsignados.TryGetValue(atributo.Atributo, out int cantidad) || cantidad == 0)
-                    continue;   // nada que canjear en este atributo
+                    continue;   // Si no hay cantidad asignada, salta al siguiente atributo
 
                 int nuevoValor = atributo.Punto - cantidad;
 
@@ -199,11 +237,12 @@ namespace ModCitiesSkylines
             GameObject.Destroy(panelCanje.gameObject);
             panelCanje = null;
 
+            // Mensaje de éxito
+            MsgView.PanelMSG("LifeSync Games", $"Has canjeado {sumaDePuntos} {(sumaDePuntos == 1 ? "punto" : "puntos")}");
+
             // Actualizar los puntos del jugador
             PuntosJG.ObtenerPuntos();
 
-            // Mensaje de éxito
-            MsgView.PanelMSG("LifeSync Games", $"Has canjeado {sumaDePuntos} puntos.");
         }
 
         // Este muestra el diálogo de confirmación con botones "Sí / No"

@@ -93,7 +93,7 @@ namespace ModCitiesSkylines
                 CerrarSesion();
             };
 
-            // Botón de canjear puntos
+            // Botón para canjear/consumir puntos
             btnCanjearPuntos = panelPerfil.AddUIComponent<UIButton>();
             btnCanjearPuntos.text = "Canjear Puntos";
             btnCanjearPuntos.size = new Vector2(150f, 30f);
@@ -101,6 +101,7 @@ namespace ModCitiesSkylines
             EstiloBtn(btnCanjearPuntos);
             btnCanjearPuntos.eventClick += (component, eventParam) =>
             {
+                // Llama al método para canjear puntos, pasando las dimensiones y sus puntos
                 CanjePuntosPanel.CanjePanel(atributos, totalPuntos);
             };
 
@@ -169,16 +170,13 @@ namespace ModCitiesSkylines
         // Método para mostrar el perfil del usuario
         public static void MostrarPerfil(string nombreUsuario, int totalPuntos, List<AtributoUsuario> atributos)
         {
-            // Verifica si el panel ya existe y está visible
             if (panelPerfil == null || !panelPerfil.isVisible)
             {
-                PerfilPanel(nombreUsuario, totalPuntos, atributos);
+                PerfilPanel(nombreUsuario, totalPuntos, atributos); // Crear y mostrar
             }
-            //
             else
             {
-                // Si el panel ya existe, simplemente alterna su visibilidad
-                panelPerfil.isVisible = !panelPerfil.isVisible;
+                panelPerfil.isVisible = false; // Ocultar si está visible
             }
         }
         

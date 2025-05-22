@@ -49,10 +49,13 @@ namespace ModCitiesSkylines
         {
             Thread t = new Thread(() =>
             {
+                // Llama a la función que consulta los puntos y atributos del jugador desde la API o base de datos
                 var datosJ = AtributosJG.ObtenerPuntosdelJugador();
 
+                // Verifica si la consulta fue exitosa
                 if (datosJ.PuntosT.HasValue)
                 {
+                    // Si la consulta fue exitosa, asigna los valores a las variables correspondientes
                     atributosPerfil = datosJ.Atributos.Select(a => new PerfilJGView.AtributoUsuario
                     {
                         IdAtributo = a.Id ?? -1,
@@ -60,8 +63,11 @@ namespace ModCitiesSkylines
                         Punto = a.Punto ?? 0
                     }).ToList();
 
+                    // Actualiza el total de puntos y el nombre del usuario
                     totalPuntos = datosJ.PuntosT.Value;
                     nombreUsuario = LoginPanel.nombreJG;
+
+                    // Muestra el perfil del jugador
                     mostrarPerfil = true; // señal para mostrar el perfil en el siguiente frame
                 }
                 else
