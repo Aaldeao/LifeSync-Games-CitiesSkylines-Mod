@@ -41,7 +41,7 @@ namespace ModCitiesSkylines
             // Crear atlas a partir de la textura(icono)
             UITextureAtlas atlas = CreateAtlas(texture, "MiButonA", "MiButon");
 
-            // Crear botón a la vista
+            // Crea el boton en la interfaz del juego
             boton = uiView.AddUIComponent(typeof(UIButton)) as UIButton;
             boton.name = "MiButon";
 
