@@ -46,7 +46,7 @@ namespace bGamesAPI
                         }
                         else
                         {
-                            resultado.Titulo = "Respuesta de LifeSync Games";
+                            resultado.Titulo = "LifeSync Games";
                             resultado.Mensaje = "Mensaje de la API de LifeSync Games: " + secondMessage;
                         }
                     }
@@ -58,7 +58,7 @@ namespace bGamesAPI
             {
                 // Manejar la excepción si la conexión falla
                 resultado.Titulo = "Error de conexión";
-                resultado.Mensaje = ex.Message;
+                resultado.Mensaje = "Ocurrió un problema al intentar conectarse. Por favor, revisa la API de LifeSync Games.";
             }
             return resultado; // Devolver el resultado de la conexión
 

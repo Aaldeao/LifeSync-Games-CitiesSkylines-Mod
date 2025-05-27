@@ -56,7 +56,7 @@ namespace bGamesAPI
             catch (Exception ex)
             {
                 resultado.Titulo = "Error de conexión";
-                resultado.Mensaje = ex.Message;
+                resultado.Mensaje = "Ocurrió un problema al intentar conectarse. Por favor, revisa tu conexión a internet o con la API de LifeSync Games.";
                 resultado.Exito = false;
             }
 

@@ -27,7 +27,7 @@ namespace ModCitiesSkylines
             // Panel del canje de puntos
             panelCanje = view.AddUIComponent(typeof(UIPanel)) as UIPanel;
             panelCanje.backgroundSprite = "MenuPanel2";
-            panelCanje.size = new Vector2(400f, 350f);
+            panelCanje.size = new Vector2(500f, 340f);
             panelCanje.relativePosition = new Vector2((view.fixedWidth - panelCanje.width) / 2f, (view.fixedHeight - panelCanje.height) / 2f);
 
             // Título del panel
@@ -39,7 +39,7 @@ namespace ModCitiesSkylines
 
             // Subtítulo del panel
             UILabel subtitulo = panelCanje.AddUIComponent<UILabel>();
-            subtitulo.text = "Canjea tu puntos por ... :";
+            subtitulo.text = "Selecciona los puntos que deseas canjear por dimensión";
             subtitulo.textScale = 1.0f;
             subtitulo.textColor = new Color32(255, 255, 255, 255);
             subtitulo.relativePosition = new Vector2((panelCanje.width - subtitulo.width) / 2f, 55f);
@@ -52,18 +52,18 @@ namespace ModCitiesSkylines
             {
                 UILabel lbl = panelCanje.AddUIComponent<UILabel>();
                 lbl.text = $"{atributo.Atributo} ({atributo.Punto}):";
-                lbl.relativePosition = new Vector2(20f, y);
+                lbl.relativePosition = new Vector2(40f, y);
 
                 // Boton menos
                 UIButton btnMenos = panelCanje.AddUIComponent<UIButton>();
                 btnMenos.text = "-";
                 btnMenos.size = new Vector2(28f, 25f);
-                btnMenos.relativePosition = new Vector2(250f, y - 5f);
+                btnMenos.relativePosition = new Vector2(350f, y - 5f);
                 EstiloBtn(btnMenos);
 
                 UITextField input = panelCanje.AddUIComponent<UITextField>();
                 input.size = new Vector2(50f, 25f);
-                input.relativePosition = new Vector2(280f, y - 5f);
+                input.relativePosition = new Vector2(380f, y - 5f);
                 input.numericalOnly = true;
                 input.text = "0";
                 input.readOnly = true;
@@ -77,7 +77,7 @@ namespace ModCitiesSkylines
                 UIButton btnMas = panelCanje.AddUIComponent<UIButton>();
                 btnMas.text = "+";
                 btnMas.size = new Vector2(28f, 25f);
-                btnMas.relativePosition = new Vector2(335f, y - 5f);
+                btnMas.relativePosition = new Vector2(435f, y - 5f);
                 EstiloBtn(btnMas);
 
                 // Evento para manejar el clic en el botón "más" y "menos"
@@ -142,7 +142,7 @@ namespace ModCitiesSkylines
                 // Valida que el total de los puntos no sea cero
                 if (totalPuntos == 0)
                 {
-                    MsgView.PanelMSG("LifeSync Games", "Debes colocar puntos en tus dimensiones para poder canjear.");
+                    MsgView.PanelMSG("LifeSync Games", "Debes asignar puntos en al menos una dimensión para poder canjear.");
                     return;
                 }
 
