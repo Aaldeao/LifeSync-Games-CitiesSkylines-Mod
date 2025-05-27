@@ -10,11 +10,11 @@ using ICities; // API de Cities Skylines para modding
 namespace ModCitiesSkylines
 {
     // Permite que el mod sea reconocido por Cities Skylines
-    public class Class1 : IUserMod
+    public class Mod : IUserMod
     {
         public string Name // Permite darle el nombre al mod
         {
-            get { return "LifeSync Games-Cities:Skyline"; }
+            get { return "LifeSync Games - Cities:Skyline"; }
         }
         public string Description // Permite darle una descripción al mod
         {

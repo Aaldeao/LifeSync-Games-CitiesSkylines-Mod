@@ -60,7 +60,7 @@
   <ItemGroup>
     <Compile Include="BotonbG.cs" />
     <Compile Include="CanjePtsView.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Mod.cs" />
     <Compile Include="ConexionbG.cs" />
     <Compile Include="MsgView.cs" />
     <Compile Include="DineroExtra.cs" />
