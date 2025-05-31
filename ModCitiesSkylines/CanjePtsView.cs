@@ -168,8 +168,6 @@ namespace ModCitiesSkylines
 
         private static void ConfirmarCanje(List<PerfilJGView.AtributoUsuario> atributos, int totalDisponibles)
         {
-            int totalcanjear = 0;
-
             // Recolectar errores y puntos asignados
             List<string> atributosExcedidos = new List<string>(); // Lista para almacenar atributos excedidos
             Dictionary<string, int> puntosAsignados = new Dictionary<string, int>(); // Almacena los puntos asignados por atributo
@@ -192,8 +190,6 @@ namespace ModCitiesSkylines
                 sumaDePuntos += val; // Suma los puntos asignados
             }
 
-            totalcanjear = sumaDePuntos; // Total de puntos a canjear es la suma de los puntos por dimensión
-
             // Muentra las dimensiones que exceden de su maximo
             if (atributosExcedidos.Count > 0)
             {
@@ -203,9 +199,9 @@ namespace ModCitiesSkylines
             }
 
             // Verificar si la suma de los puntos a canjear es mayor al total disponible
-            if (totalcanjear > totalDisponibles)
+            if (sumaDePuntos > totalDisponibles)
             {
-                MsgView.PanelMSG("LifeSync Games", $"La cantidad de puntos total ({totalcanjear}) que deseas por canjear es mayor al total disponible ({totalDisponibles}).");
+                MsgView.PanelMSG("LifeSync Games", $"La cantidad de puntos total ({sumaDePuntos}) que deseas por canjear es mayor al total disponible ({totalDisponibles}).");
                 return;
             }
 
@@ -213,7 +209,7 @@ namespace ModCitiesSkylines
             foreach (var atributo in atributos)
             {
 
-                
+
                 if (!puntosAsignados.TryGetValue(atributo.Atributo, out int cantidad) || cantidad == 0)
                     continue;   // Si no hay cantidad asignada, salta al siguiente atributo
 
@@ -233,12 +229,17 @@ namespace ModCitiesSkylines
                 }
             }
 
+            DineroExtra.AgregarDineroExtra(sumaDePuntos); // Metodo para agregar el dinero extra al jugador por canjear los puntos.
+
+            int dineroExtra = (sumaDePuntos * 100000) / 100;// Calcula el monto que se agregará al jugador por canjear esa cantidad de puntos (dividido por 100 para ajustarlo a la unidad de medida correcta)
+                                                            // Ayudandonos a tener el dato el cual mostraremos al jugador en el mensaje de confirmación.
+
             // Cerrar el panel
             GameObject.Destroy(panelCanje.gameObject);
             panelCanje = null;
 
-            // Mensaje de éxito
-            MsgView.PanelMSG("LifeSync Games", $"Has canjeado {sumaDePuntos} {(sumaDePuntos == 1 ? "punto" : "puntos")}");
+            // Mensaje de éxito y el bono que recibió el jugador por canjear puntos
+            MsgView.PanelMSG("LifeSync Games", $"¡Felicidades! Has canjeado {sumaDePuntos} {(sumaDePuntos == 1 ? "punto" : "puntos")} por un bono de {dineroExtra:N0} ₡ para tu ciudad.");
 
             // Actualizar los puntos del jugador
             PuntosJG.ObtenerPuntos();

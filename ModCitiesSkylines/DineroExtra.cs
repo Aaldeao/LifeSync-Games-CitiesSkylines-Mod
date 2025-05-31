@@ -12,43 +12,20 @@ using ColossalFramework.Plugins;
 
 namespace ModCitiesSkylines
 {
-    public class DineroExtra : ThreadingExtensionBase
+    public class DineroExtra
     {
-        // Tecla para activar el dinero extra
-        private const KeyCode Boton_Dinero_Extra = KeyCode.F4;
-
-
-        // Metodo que se ejecuta una vez por frame
-        public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
+        // Metodo que agrega dinero extra gracias a los puntos que desea convertir/canjear/consumir el jugador
+        public static void AgregarDineroExtra(int puntos)
         {
+            int dineroExtra = puntos * 100000; // Multiplica los puntos por 100000 (que son 1000 debido a que el sistema de economía del juego utiliza valores en centavos).
 
-            if (Input.GetKeyDown(Boton_Dinero_Extra))
-            {
-                AgregarDineroExtra();
-            }
-        }
-
-        // Metodo que agrega dinero extra
-        public void AgregarDineroExtra()
-        {
-            int dineroExtra = 100000;
-
+            // Agrega el dinero extra calculado como una recompensa al jugador.
             EconomyManager.instance.AddResource(
                 EconomyManager.Resource.RewardAmount,
                 dineroExtra,
                 ItemClass.Service.None,
                 ItemClass.SubService.None,
                 ItemClass.Level.None);
-
-            int dineroReal = dineroExtra / 100;
-
-            // Muestra el mensaje personalizado cuando se agrega el dinero extra
-            string dineroIcono = "ModCitiesSkylines.IconoDinero.png";
-            DineroView.PanelDinero(
-                "LifeSync Games",
-                "Has ganado " + dineroReal + " ₡ gracias a tus puntos en LifeSync Games.",
-                dineroIcono);
         }
     }
-
 }

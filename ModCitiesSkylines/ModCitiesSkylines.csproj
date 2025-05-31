@@ -73,7 +73,7 @@
     <Compile Include="PuntoJG.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="IconoDinero.png" />
+    <None Include="IconoDinero.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ITO-iso.png" />
