@@ -14,7 +14,7 @@ using bGamesAPI;
 
 namespace ModCitiesSkylines
 {
-    public class PuntosJG
+    public static class PuntosJG
     {
         private static volatile bool mostrarPerfil = false; // Bandera compartida entre hilos para mostrar el perfil
         private static volatile bool mostrarError = false; // Bandera compartida entre hilos para mostrar errores
@@ -23,7 +23,7 @@ namespace ModCitiesSkylines
         private static string nombreUsuario = ""; // Nombre del usuario
         private static string mensajeError = null; // Mensaje de error
         private static string tituloError = null; // Título del error
-        private static List<PerfilJGView.AtributoUsuario> atributosPerfil = new List<PerfilJGView.AtributoUsuario>();
+        public static List<PerfilJGView.AtributoUsuario> atributosPerfil = new List<PerfilJGView.AtributoUsuario>();
 
         // Método que se ejecuta una vez por frame
         public static void Actualizar(float realTimeDelta, float simulationTimeDelta)
