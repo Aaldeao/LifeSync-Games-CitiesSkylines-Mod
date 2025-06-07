@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-//Referencias de la biblioteca de Cities Skylines
-using ICities; // API de Cities Skylines para modding
-using ColossalFramework.UI;
-using UnityEngine;
-using ColossalFramework.Plugins;
 using System.Threading;
+
+using UnityEngine;
+using ColossalFramework.UI;
 
 using bGamesAPI;
 

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 //Referencias de la biblioteca de Cities Skylines
 using ICities; // API de Cities Skylines para modding

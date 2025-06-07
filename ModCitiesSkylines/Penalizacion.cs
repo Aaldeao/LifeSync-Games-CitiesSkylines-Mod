@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 using bGamesAPI;
 using ColossalFramework.UI;
 using ICities;
@@ -46,7 +46,7 @@ namespace ModCitiesSkylines
             var atributos = new List<PerfilJGView.AtributoUsuario>(PuntosJG.atributosPerfil);
 
             var penalizadosEnCiclo = new HashSet<int>(); // Conjunto para rastrear los atributos penalizados en este ciclo
-            var random = new System.Random(); // 
+            var random = new System.Random();
 
             // Aplica la penalizacion reduciendo un punto de un atributo aleatorio con más puntos
             for (int i = 0; i < cantidadPenalizaciones; i++)
@@ -95,6 +95,8 @@ namespace ModCitiesSkylines
                 if (respuesta.Exito)
                 {
                     dimensionSeleccionada.Punto = puntoPenalizado;
+
+                    PerfilJGView.OcultarPerfil();
 
                     UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
                         "Penalización aplicada",

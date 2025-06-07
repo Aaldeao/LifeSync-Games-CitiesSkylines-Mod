@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 
 using ColossalFramework.UI;
 using UnityEngine;
@@ -179,7 +179,15 @@ namespace ModCitiesSkylines
                 panelPerfil.isVisible = false; // Ocultar si está visible
             }
         }
-        
+
+        public static void OcultarPerfil()
+        {
+            if (panelPerfil != null && panelPerfil.isVisible)
+            {
+                panelPerfil.isVisible = false;
+            }
+        }
+
         // Método para cargar el icono
         private static Texture2D LoadTexture(string logo)
         {

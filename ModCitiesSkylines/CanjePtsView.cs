@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using ColossalFramework.UI;
 using System.Linq;
-using System.Security.Cryptography;
 
 using bGamesAPI;
 

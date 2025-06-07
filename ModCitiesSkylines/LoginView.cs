@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using ICities;
-using System.IO;
-using System.Net;
 using UnityEngine;
 using ColossalFramework.UI;
 using ColossalFramework.Plugins;
 using bGamesAPI;
-using System.Globalization;
-
 
 namespace ModCitiesSkylines
 {
