@@ -215,7 +215,7 @@ namespace ModCitiesSkylines
                 int nuevoValor = atributo.Punto - cantidad;
 
                 // Envía lo canjeado a la API
-                var respuesta = CanjearPts.EnviarCanje(
+                var respuesta = Puntos.EnviarCanje(
                     LoginPanel.idJugador.Value,     // id_player
                     atributo.IdAtributo,            // id_attributes
                     nuevoValor                      // data (nuevo valor de puntos)
@@ -238,7 +238,7 @@ namespace ModCitiesSkylines
             panelCanje = null;
 
             // Mensaje de éxito y el bono que recibió el jugador por canjear puntos
-            MsgView.PanelMSG("LifeSync Games", $"¡Felicidades! Has canjeado {sumaDePuntos} {(sumaDePuntos == 1 ? "punto" : "puntos")} por un bono de {dineroExtra:N0} ₡ para tu ciudad.");
+            MsgView.PanelMSG("LifeSync Games", $"¡Felicidades! Has canjeado {sumaDePuntos} {(sumaDePuntos == 1 ? "punto" : "puntos")} por un bono de {dineroExtra:N0} ₡ para tu ciudad. Recuerda guardar la partida para conservar el dinero.");
 
             // Actualizar los puntos del jugador
             PuntosJG.ObtenerPuntos();

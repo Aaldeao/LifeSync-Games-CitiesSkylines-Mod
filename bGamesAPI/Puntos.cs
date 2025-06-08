@@ -14,7 +14,7 @@ namespace bGamesAPI
         public bool Exito { get; set; }
     }
 
-    public class CanjearPts
+    public class Puntos
     {
         public static ResultadoCanje EnviarCanje(int idJugador, int idAtributo, int nuevoValor)
         {

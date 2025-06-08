@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="AtributosJG.cs" />
     <Compile Include="AutenticacionJG.cs" />
-    <Compile Include="CanjearPts.cs" />
+    <Compile Include="Puntos.cs" />
     <Compile Include="Conexion_bG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

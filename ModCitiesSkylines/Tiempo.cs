@@ -7,54 +7,45 @@ namespace ModCitiesSkylines
 {
     public class Tiempo : MonoBehaviour
     {
-        private static DateTime tiempoAlIniciar; // Tiempo al iniciar la partida
-        private static int penalizaciones= 0; // Numero de penalizaciones acumuladas por tiempo excedido
-        private static bool advertencia = false; //Bandera para la advertencia de los 50 minutos jugados
+        private static DateTime tiempoAlIniciar = DateTime.MinValue; // Guarda el momento en que inicia la sesión
 
-        public static int PenalizacionesPendientes => penalizaciones;
+        private static bool advertencia = false; // Bandera para controlar que la advertencia solo se muestre una vez
 
-        // Método que se llama al iniciar la partida para establecer el tiempo de inicio, reiniciar las penalizaciones y la advertencia.
+        public static int inicioPenalizaciones = 60; // Minutos a partir de los cuales comienzan las penalizaciones
+
+        // Método estático llamado al iniciar sesión o una nueva partida
         public static void PartidaIniciada()
         {
-            tiempoAlIniciar = DateTime.Now; // Guarda el tiempo actual al iniciar
-            penalizaciones = 0;
-            advertencia = false; // Reinicia la bandera de advertencia
+            tiempoAlIniciar = DateTime.Now; // Guarda el tiempo actual al iniciar la sesión
+            advertencia = false; // Reinicia la bandera para mostrar la advertencia
+            inicioPenalizaciones = 5; // Reinicia el contador para inicio de penalizaciones
         }
 
         // Método llamado automáticamente en cada frame.
         public void Update()
         {
-            // Verifica si el tiempo de inicio ha sido inicializado correctamente.
-            if (tiempoAlIniciar == DateTime.MinValue)
+            // Si el jugador no ha iniciado sesión o el tiempo no está inicializado, no hace nada
+            if (!LoginPanel.inicioSesion || tiempoAlIniciar == DateTime.MinValue)
             {
-                return; // Si no se ha iniciado la partida, no hace nada
+                return;
             }
 
-            // Calcula el tiempo transcurrido desde que comenzó la partida
+            // Calcula cuánto tiempo ha pasado desde que inició la sesión
             TimeSpan tiempoTranscurrido = DateTime.Now - tiempoAlIniciar;
-            int minutos = (int)tiempoTranscurrido.TotalMinutes;
+            int minutos = (int)tiempoTranscurrido.TotalMinutes; // Convierte el tiempo transcurrido a minutos enteros
 
-            // Muestra una advertencia si el jugador ha jugado más de o igual a 50 minutos.
-            if (!advertencia && minutos == 5)
+            // Si aún no se mostró la advertencia y el jugador lleva 60 minutos, muestra la advertencia
+            if (!advertencia && minutos == 60)
             {
-                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage("Aviso de LifeSync Games", "Has jugado los 60 minutos como maximo. Se recomienda hacer una pausa o cerrar el juego para evitar penalizaciones cada 30 minutos", false);
+                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage("LifeSync Games", "Has jugado los 60 minutos como maximo. Se recomienda hacer una pausa o cerrar el juego para evitar penalizaciones cada 30 minutos", false);
                 advertencia = true; // Marca la advertencia como ya mostrada para no repetirla
             }
 
-            // Si se han superado los 60 minutos de juego, se comienza a aplicar penalizaciones
-            if (minutos >= 5)
+            // Si ya pasaron al menos 60 minutos desde el inicio, y han transcurrido 30 minutos desde la última penalización, aplica una nueva penalización
+            if (minutos >= 60 && minutos - inicioPenalizaciones >= 30)
             {
-                int tiempoExcedido = minutos - 5; // Calcula cuántos minutos han pasado desde la hora límite ( 1 hora = 60 minutos)
-                int penalizacionesDetectadas = tiempoExcedido;  // Calcula cuántas penalizaciones deben aplicarse: 1 por cada 30 minutos excedidos
-
-                // Solo aplica penalizaciones nuevas si hay más detectadas que las que ya se registraron
-                if (penalizacionesDetectadas > penalizaciones)
-                {
-                    int nuevasPenalizaciones = penalizacionesDetectadas - penalizaciones;  // Calcula cuántas penalizaciones nuevas deben aplicarse
-                    penalizaciones = penalizacionesDetectadas; // Actualiza el contador total de penalizaciones aplicadas
-
-                    Penalizacion.AplicarPenalizaciones();
-                }
+                inicioPenalizaciones = minutos;  // Actualiza el contador para la próxima penalización
+                Penalizacion.AplicarPenalizaciones();  // Llama a aplicar penalizaciones al jugador
             }
         }
     }

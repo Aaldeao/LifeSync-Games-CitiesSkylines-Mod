@@ -199,15 +199,16 @@ namespace ModCitiesSkylines
 
             var resultado = AutenticacionJG.IniciarSesion(correo, contrasena);
 
-            if (resultado.IdJugador.HasValue) 
+            if (resultado.IdJugador.HasValue)
             {
                 idJugador = resultado.IdJugador.Value;
                 nombreJG = resultado.NombreUsuario;
 
                 // Muestra el perfil del jugador
                 PuntosJG.ObtenerPuntos();
-
                 panelLogin.Hide();
+
+                Tiempo.PartidaIniciada();
             }
             else
             {

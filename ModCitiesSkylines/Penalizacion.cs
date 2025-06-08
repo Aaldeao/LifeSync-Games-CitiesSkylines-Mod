@@ -13,13 +13,13 @@ namespace ModCitiesSkylines
     {
         private GameObject penalizacionObject; // Objeto que representa la penalización en el juego
 
+        // Método que se llama cuando se carga un nivel (nuevo o guardado)
         public override void OnLevelLoaded(LoadMode mode)
         {
             if (mode == LoadMode.NewGame || mode == LoadMode.LoadGame)
             {
                 penalizacionObject = new GameObject("PenalizacionObject"); // Crea un nuevo objeto para la penalización
                 penalizacionObject.AddComponent<Tiempo>(); // Añade el componente Tiempo al objeto
-                Tiempo.PartidaIniciada(); // Llama al método para inicializar el tiempo al iniciar la partida
             }
         }
 
@@ -32,12 +32,13 @@ namespace ModCitiesSkylines
             }
         }
 
+        // Metodo para aplicar penalizaciones al jugador
         public static void AplicarPenalizaciones()
         {
-            int cantidadPenalizaciones = Tiempo.PenalizacionesPendientes; // Obtiene la cantidad de penalizaciones pendientes por aplicar
+            int cantidadPenalizacion = 1; // Cantidad de puntos que se van a restar (por ahora, 1)
 
-            // Si no hay penalizaciones pendiente spor aplicar, no hace nada
-            if (cantidadPenalizaciones <= 0)
+            // Si no hay puntos a restar, no hace nada
+            if (cantidadPenalizacion <= 0)
             {
                 return;
             }
@@ -45,73 +46,45 @@ namespace ModCitiesSkylines
             // Obtiene los atributos actuales del jugador
             var atributos = new List<PerfilJGView.AtributoUsuario>(PuntosJG.atributosPerfil);
 
-            var penalizadosEnCiclo = new HashSet<int>(); // Conjunto para rastrear los atributos penalizados en este ciclo
-            var random = new System.Random();
+            int puntoMax = atributos.Max(a => a.Punto); // Busca el valor de punto más alto entre todas las dimensiones del jugador
+            var dimensionesMax = atributos.Where(a => a.Punto == puntoMax && a.Punto > 0).ToList();  // Filtra solo las dimensiones que tengan ese valor máximo y que tengan más de 0 puntos
 
-            // Aplica la penalizacion reduciendo un punto de un atributo aleatorio con más puntos
-            for (int i = 0; i < cantidadPenalizaciones; i++)
+            // Si no hay ninguna dimensión con puntos, no se puede penalizar
+            if (dimensionesMax.Count == 0)
             {
-                int puntoMax = atributos.Max(a => a.Punto); // Busca la dimension con más puntos
+                return;
+            }
 
-                var dimensionesMax = atributos.Where(a => a.Punto == puntoMax && a.Punto > 0).ToList(); // Selecciona todos las dimensiones que tienen el máximo de puntos
+            var random = new System.Random(); // Crea un objeto Random para seleccionar una dimension al azar entre los máximos
+            var dimensionSeleccionada = dimensionesMax[random.Next(dimensionesMax.Count)]; // Selecciona una dimensión al azar de entre las que tienen el valor máximo
 
-                // Si no hay atributos con puntos para reducir, sale del bucle
-                if (dimensionesMax.Count == 0)
-                {
-                    break;
-                }
+            int puntoPenalizado = dimensionSeleccionada.Punto - 1; // Resta 1 punto a la dimensión seleccionada
 
-                PerfilJGView.AtributoUsuario dimensionSeleccionada; // Selecciona un atributo aleatorio de los que tienen el máximo de puntos
+            var respuesta = Puntos.EnviarCanje(
+                LoginPanel.idJugador.Value,
+                dimensionSeleccionada.IdAtributo,
+                puntoPenalizado
+            );
 
-                if (dimensionesMax.Count == 1)
-                {
-                    dimensionSeleccionada = dimensionesMax[0]; // Si solo hay un atributo con el máximo de puntos, lo selecciona directamente
-                }
-                else
-                {
-                    if (penalizadosEnCiclo.Count >= dimensionesMax.Count)
-                    {
-                        penalizadosEnCiclo.Clear(); // 
-                    }
-                    var candidatos = dimensionesMax.Where(a => !penalizadosEnCiclo.Contains(a.IdAtributo)).ToList(); // Filtra los atributos que no han sido penalizados en este ciclo
+            // Si la respuesta fue exitosa (penalización aplicada)
+            if (respuesta.Exito)
+            {
+                dimensionSeleccionada.Punto = puntoPenalizado;
 
-                    if (candidatos.Count == 0)
-                    {
-                        break; // Si no hay candidatos, sale del bucle
-                    }
-
-                    dimensionSeleccionada = candidatos[random.Next(candidatos.Count)]; // Selecciona un atributo aleatorio de los 
-                    penalizadosEnCiclo.Add(dimensionSeleccionada.IdAtributo); // Añade el atributo seleccionado al conjunto de penalizados en este ciclo
-                }
-
-                int puntoPenalizado = dimensionSeleccionada.Punto - 1;
-
-                var respuesta = CanjearPts.EnviarCanje(
-                    LoginPanel.idJugador.Value,
-                    dimensionSeleccionada.IdAtributo,
-                    puntoPenalizado
-                );
-
-                if (respuesta.Exito)
-                {
-                    dimensionSeleccionada.Punto = puntoPenalizado;
-
-                    PerfilJGView.OcultarPerfil();
-
-                    UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
+                PerfilJGView.OcultarPerfil();
+                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
                         "Penalización aplicada",
                         $"Se ha descontado 1 punto de la dimensión: {dimensionSeleccionada.Atributo}",
                         false
                     );
-                }
-                else
-                {
-                    UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
-                        respuesta.Titulo,
-                        respuesta.Mensaje,
-                        false
-                    );
-                }
+            }
+            else
+            {
+                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
+                    respuesta.Titulo,
+                    respuesta.Mensaje,
+                    false
+                );
             }
         }
     }

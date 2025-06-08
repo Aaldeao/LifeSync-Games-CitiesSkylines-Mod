@@ -13,9 +13,9 @@ namespace bGamesAPI
 {
     public class AtributosJugador
     {
-        public string Nombre { get; set; } // Para almacenar el nombre del atributo
-        public int? Punto { get; set; } // Para almacenar el valor del atributo
-        public int? Id { get; set; } // Para almacenar el id del atributo
+        public string Nombre { get; set; } // Para almacenar el nombre de la dimension
+        public int? Punto { get; set; } // Para almacenar el valor(puntos) de la dimension
+        public int? Id { get; set; } // Para almacenar el id de la dimenion
     }
     public class ResultadosAtributos
     {
@@ -53,9 +53,9 @@ namespace bGamesAPI
                     // Leer la respuesta de la API
                     string result = reader.ReadToEnd();
 
-                    var ids = Regex.Matches(result, @"""id_attributes""\s*:\s*(\d+)"); // Expresión regular para extraer el id del atributo
-                    var name = Regex.Matches(result, @"""name""\s*:\s*""(.*?)"""); // Expresión regular para extraer el nombre del atributo
-                    var datos = Regex.Matches(result, @"""data""\s*:\s*(\d+)"); // Expresión regular para extraer los datos buscando el valor de "data"
+                    var ids = Regex.Matches(result, @"""id_attributes""\s*:\s*(\d+)"); // Expresión regular para extraer el id de la dimension
+                    var name = Regex.Matches(result, @"""name""\s*:\s*""(.*?)"""); // Expresión regular para extraer el nombre de la dimension
+                    var datos = Regex.Matches(result, @"""data""\s*:\s*(\d+)"); // Expresión regular para extraer los datos buscando el valor de "data" que son los puntos que tiene la dimension
 
                     int sumaPuntos = 0; // Variable para almacenar la suma total de los puntos
 
@@ -63,9 +63,9 @@ namespace bGamesAPI
                     {
                         for (int i = 0; i < datos.Count; i++)
                         {
-                            int id = int.Parse(ids[i].Groups[1].Value); // Obtener el id del atributo
-                            string nombre = name[i].Groups[1].Value; // Obtener el nombre del atributo
-                            int punto = int.Parse(datos[i].Groups[1].Value); // Obtener el valor del atributo
+                            int id = int.Parse(ids[i].Groups[1].Value); // Obtener el id de la dimension
+                            string nombre = name[i].Groups[1].Value; // Obtener el nombre de la dimension
+                            int punto = int.Parse(datos[i].Groups[1].Value); // Obtener el valor(puntos) de la dimension
                             sumaPuntos += punto;
 
                             // Agregar el atributo a la lista de atributos con el id, nombre y punto 
