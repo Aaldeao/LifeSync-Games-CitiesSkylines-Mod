@@ -208,7 +208,7 @@ namespace ModCitiesSkylines
                 PuntosJG.ObtenerPuntos();
                 panelLogin.Hide();
 
-                Tiempo.PartidaIniciada();
+                Tiempo.LoginIniciado();
             }
             else
             {

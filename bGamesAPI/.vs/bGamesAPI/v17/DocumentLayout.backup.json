@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 925,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -46,11 +46,24 @@
               "Title": "AtributosJG.cs",
               "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
               "RelativeDocumentMoniker": "AtributosJG.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs*",
-              "RelativeToolTip": "AtributosJG.cs*",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\AtributosJG.cs",
+              "RelativeToolTip": "AtributosJG.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAkwEYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T22:54:44.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Puntos.cs",
+              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Puntos.cs",
+              "RelativeDocumentMoniker": "Puntos.cs",
+              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Puntos.cs",
+              "RelativeToolTip": "Puntos.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAiwCgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T03:43:11.27Z",
               "EditorCaption": ""
             },
             {
@@ -64,19 +77,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T23:03:05.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Puntos.cs",
-              "DocumentMoniker": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Puntos.cs",
-              "RelativeDocumentMoniker": "Puntos.cs",
-              "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\bGamesAPI\\Puntos.cs*",
-              "RelativeToolTip": "Puntos.cs*",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAswCgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T03:43:11.27Z",
               "EditorCaption": ""
             }
           ]

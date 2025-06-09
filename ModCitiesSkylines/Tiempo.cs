@@ -9,23 +9,22 @@ namespace ModCitiesSkylines
     {
         private static DateTime tiempoAlIniciar = DateTime.MinValue; // Guarda el momento en que inicia la sesión
 
-        private static bool advertencia = false; // Bandera para controlar que la advertencia solo se muestre una vez
-
+        private static int ultimaAdvertencia = 0; // Guarda el minuto en que se mostró la última advertencia
         public static int inicioPenalizaciones = 60; // Minutos a partir de los cuales comienzan las penalizaciones
 
         // Método estático llamado al iniciar sesión o una nueva partida
-        public static void PartidaIniciada()
+        public static void LoginIniciado()
         {
             tiempoAlIniciar = DateTime.Now; // Guarda el tiempo actual al iniciar la sesión
-            advertencia = false; // Reinicia la bandera para mostrar la advertencia
-            inicioPenalizaciones = 5; // Reinicia el contador para inicio de penalizaciones
+            inicioPenalizaciones = 60; // Reinicia el contador para inicio de penalizaciones
+            ultimaAdvertencia = 0; // Reinicia el contador de la última advertencia
         }
 
         // Método llamado automáticamente en cada frame.
         public void Update()
         {
-            // Si el jugador no ha iniciado sesión o el tiempo no está inicializado, no hace nada
-            if (!LoginPanel.inicioSesion || tiempoAlIniciar == DateTime.MinValue)
+            // Si el tiempo no está inicializado, no hace nada
+            if (tiempoAlIniciar == DateTime.MinValue)
             {
                 return;
             }
@@ -34,15 +33,28 @@ namespace ModCitiesSkylines
             TimeSpan tiempoTranscurrido = DateTime.Now - tiempoAlIniciar;
             int minutos = (int)tiempoTranscurrido.TotalMinutes; // Convierte el tiempo transcurrido a minutos enteros
 
-            // Si aún no se mostró la advertencia y el jugador lleva 60 minutos, muestra la advertencia
-            if (!advertencia && minutos == 60)
+            int horasJugadas = minutos / 60; // Calcula las horas jugadas dividiendo los minutos por 60
+
+            // Cada 1 hora jugada, muestra una advertencia
+            if (horasJugadas > 0 && horasJugadas > ultimaAdvertencia)
             {
-                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage("LifeSync Games", "Has jugado los 60 minutos como maximo. Se recomienda hacer una pausa o cerrar el juego para evitar penalizaciones cada 30 minutos", false);
-                advertencia = true; // Marca la advertencia como ya mostrada para no repetirla
+                ultimaAdvertencia = horasJugadas;
+
+                if (LoginPanel.inicioSesion) // Si el jugador está logueado, muestra un mensaje de advertencia
+                {
+                    UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
+                        "LifeSync Games", $"Has jugado por {horasJugadas} hora(s). Se recomienda hacer una pausa cerrando el juego para evitar penalizaciones cada 30 minutos", false);
+                }
+                else // Si el jugador no está logueado, muestra un mensaje de advertencia más general
+                {
+                    UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
+                        "LifeSync Games", $"Has jugado por {horasJugadas} hora(s). Se recomienda hacer una pausa cerrando el juego", false);
+                }
             }
 
-            // Si ya pasaron al menos 60 minutos desde el inicio, y han transcurrido 30 minutos desde la última penalización, aplica una nueva penalización
-            if (minutos >= 60 && minutos - inicioPenalizaciones >= 30)
+
+            // Si esta logueado, ademas ya pasaron al menos 60 minutos desde el inicio de sesion y han pasado 30 minutos desde la última penalización, aplica la penalización
+            if (LoginPanel.inicioSesion && minutos >= 60 && minutos - inicioPenalizaciones >= 30)
             {
                 inicioPenalizaciones = minutos;  // Actualiza el contador para la próxima penalización
                 Penalizacion.AplicarPenalizaciones();  // Llama a aplicar penalizaciones al jugador
