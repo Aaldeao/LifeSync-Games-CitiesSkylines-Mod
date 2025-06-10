@@ -30,6 +30,8 @@ namespace ModCitiesSkylines
                 GameObject.Destroy(penalizacionObject); // Destruye el objeto de penalización al salir del juego
 
             }
+
+            Tiempo.LimpiarTiempo();
         }
 
         // Metodo para aplicar penalizaciones al jugador
@@ -49,7 +51,7 @@ namespace ModCitiesSkylines
             int puntoMax = atributos.Max(a => a.Punto); // Busca el valor de punto más alto entre todas las dimensiones del jugador
             var dimensionesMax = atributos.Where(a => a.Punto == puntoMax && a.Punto > 0).ToList();  // Filtra solo las dimensiones que tengan ese valor máximo y que tengan más de 0 puntos
 
-            // Si no hay ninguna dimensión con puntos, no se puede penalizar
+            // Si no hay ninguna dimensión con puntos, no se puede penalizar // mostrar mensaje sobre esto
             if (dimensionesMax.Count == 0)
             {
                 return;
@@ -58,8 +60,9 @@ namespace ModCitiesSkylines
             var random = new System.Random(); // Crea un objeto Random para seleccionar una dimension al azar entre los máximos
             var dimensionSeleccionada = dimensionesMax[random.Next(dimensionesMax.Count)]; // Selecciona una dimensión al azar de entre las que tienen el valor máximo
 
-            int puntoPenalizado = dimensionSeleccionada.Punto - 1; // Resta 1 punto a la dimensión seleccionada
+            int puntoPenalizado = dimensionSeleccionada.Punto - cantidadPenalizacion; // Resta 1 punto a la dimensión seleccionada
 
+            // Envia el nuevo valor de puntos penalizados de la dimension a la API
             var respuesta = Puntos.EnviarCanje(
                 LoginPanel.idJugador.Value,
                 dimensionSeleccionada.IdAtributo,
@@ -71,7 +74,13 @@ namespace ModCitiesSkylines
             {
                 dimensionSeleccionada.Punto = puntoPenalizado;
 
-                PerfilJGView.OcultarPerfil();
+                PerfilJGView.OcultarPerfil(); // Oculta el perfil del jugador al aplicar la penalización
+
+                if (CanjePuntosPanel.EstaAbierto())
+                {
+                    CanjePuntosPanel.CerrarPanel(); // Cierra el panel de canje de puntos si está abierto
+                }
+
                 UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
                         "Penalización aplicada",
                         $"Se ha descontado 1 punto de la dimensión: {dimensionSeleccionada.Atributo}",

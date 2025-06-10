@@ -83,6 +83,7 @@ namespace ModCitiesSkylines
             };
 
             // Botón de cerrar sesión
+            /*
             closeButton = panelPerfil.AddUIComponent<UIButton>();
             closeButton.text = "Cerrar Sesión";
             closeButton.size = new Vector2(150f, 30f);
@@ -92,12 +93,13 @@ namespace ModCitiesSkylines
             {
                 CerrarSesion();
             };
+            */
 
             // Botón para canjear/consumir puntos
             btnCanjearPuntos = panelPerfil.AddUIComponent<UIButton>();
             btnCanjearPuntos.text = "Canjear Puntos";
             btnCanjearPuntos.size = new Vector2(150f, 30f);
-            btnCanjearPuntos.relativePosition = new Vector2(10f, panelPerfil.height - btnCanjearPuntos.height - 10f);
+            btnCanjearPuntos.relativePosition = new Vector2((panelPerfil.width - btnCanjearPuntos.width) / 2f, 245f);
             EstiloBtn(btnCanjearPuntos);
             btnCanjearPuntos.eventClick += (component, eventParam) =>
             {
@@ -218,6 +220,7 @@ namespace ModCitiesSkylines
             boton.pressedTextColor = new Color32(150, 150, 150, 255);
         }
 
+        /*
         // Método para cerrar sesión, limpiar los campos del perfil y eliminar el panel 
         private static void CerrarSesion()
         {
@@ -233,6 +236,8 @@ namespace ModCitiesSkylines
             // Mostrar un mensaje al cerrar sesión
             MensajePerfil("LifeSync Games", "Has cerrado sesión correctamente.");
         }
+        */
+
         private static void MensajePerfil(string titulo, string mensaje)
         {
             MsgView.PanelMSG(titulo, mensaje);

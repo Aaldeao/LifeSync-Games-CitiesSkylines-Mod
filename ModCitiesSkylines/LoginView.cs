@@ -17,6 +17,7 @@ namespace ModCitiesSkylines
             if (mode == LoadMode.NewGame || mode == LoadMode.LoadGame)
             {
                 LoginPanel.CrearPanel(); // Llama al método que construye el panel del login
+                LoginPanel.mostrarLogin(); // Muestra el panel de login al cargar el juego
             }
         }
     }
@@ -208,7 +209,7 @@ namespace ModCitiesSkylines
                 PuntosJG.ObtenerPuntos();
                 panelLogin.Hide();
 
-                Tiempo.LoginIniciado();
+                Tiempo.LoginIniciado(); // Inicia el tiempo para las penalizaciones
             }
             else
             {
