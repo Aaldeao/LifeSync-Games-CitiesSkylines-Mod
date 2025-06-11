@@ -11,6 +11,10 @@ namespace ModCitiesSkylines
         public static void AgregarDineroExtra(int puntos)
         {
             int dineroExtra = puntos * 100000; // Multiplica los puntos por 100000 (que son 1000 debido a que el sistema de economía del juego utiliza valores en centavos).
+            
+            /*Activar para el Mod Clone
+            int dineroExtra = puntos * 200000;
+            */
 
             // Agrega el dinero extra calculado como una recompensa al jugador.
             EconomyManager.instance.AddResource(

@@ -230,8 +230,11 @@ namespace ModCitiesSkylines
 
             DineroExtra.AgregarDineroExtra(sumaDePuntos); // Metodo para agregar el dinero extra al jugador por canjear los puntos.
 
-            int dineroExtra = (sumaDePuntos * 100000) / 100;// Calcula el monto que se agregará al jugador por canjear esa cantidad de puntos (dividido por 100 para ajustarlo a la unidad de medida correcta)
-                                                            // Ayudandonos a tener el dato el cual mostraremos al jugador en el mensaje de confirmación.
+            int dineroExtra = (sumaDePuntos * 100000) / 100;// Calcula el monto que se agregará al jugador por canjear esa cantidad de puntos (dividido por 100 para ajustarlo a la unidad de medida correcta). Ayudandonos a tener el dato el cual mostraremos al jugador en el mensaje de confirmación.
+
+            /*  Activar para el Mod Clone
+            int dineroExtra = (sumaDePuntos * 200000) / 100;// Calcula el monto que se agregará al jugador por canjear esa cantidad de puntos (dividido por 100 para ajustarlo a la unidad de medida correcta). Ayudandonos a tener el dato el cual mostraremos al jugador en el mensaje de confirmación.
+            */
 
             // Cerrar el panel
             GameObject.Destroy(panelCanje.gameObject);
