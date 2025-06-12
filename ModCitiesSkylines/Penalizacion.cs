@@ -82,7 +82,7 @@ namespace ModCitiesSkylines
                 }
 
                 UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage(
-                        "Penalización aplicada",
+                        "LifeSync Games",
                         $"Se ha descontado 1 punto de la dimensión: {dimensionSeleccionada.Atributo}",
                         false
                     );
