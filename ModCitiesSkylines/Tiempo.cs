@@ -58,7 +58,7 @@ namespace ModCitiesSkylines
             TimeSpan tiempoTranscurrido = DateTime.Now - tiempoAlIniciar;
             int minutos = (int)tiempoTranscurrido.TotalMinutes; // Convierte el tiempo transcurrido a minutos enteros
 
-            int horasJugadas = minutos / 5; // Calcula las horas jugadas (cada 60 minutos es una 1 hora de juego)
+            int horasJugadas = minutos / 60; // Calcula las horas jugadas (cada 60 minutos es una 1 hora de juego)
 
             if (horasJugadas > 0 && horasJugadas > ultimaAdvertencia)
             {
