@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\tiempo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\tiempo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:tiempo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:dineroextra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|d:\\usach\\ingenieria informatica\\a\u00F1o 2025\\trabajo de titulo\\bgames-citiesskylines-mod\\modcitiesskylines\\loginview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\loginview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3263E8B3-021C-4DE1-83D7-EB80573EC859}|ModCitiesSkylines.csproj|solutionrelative:loginview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -45,7 +45,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 1141,
+          "DockedHeight": 858,
           "SelectedChildIndex": 5,
           "Children": [
             {
@@ -58,8 +58,7 @@
               "RelativeToolTip": "LoginView.cs",
               "ViewState": "AgIAAHoAAAAAAAAAAAAIwB8BAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T03:59:55.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T03:59:55.443Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "RelativeToolTip": "ConexionbG.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T20:31:12.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-03T20:31:12.518Z"
             },
             {
               "$type": "Document",
@@ -96,8 +94,7 @@
               "RelativeToolTip": "DineroExtra.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T15:17:27.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T15:17:27.738Z"
             },
             {
               "$type": "Document",
@@ -119,7 +116,7 @@
               "RelativeDocumentMoniker": "Tiempo.cs",
               "ToolTip": "D:\\USACH\\Ingenieria Informatica\\A\u00F1o 2025\\TRABAJO DE TITULO\\bGames-CitiesSkylines-Mod\\ModCitiesSkylines\\Tiempo.cs",
               "RelativeToolTip": "Tiempo.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAgwCEAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAqwFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-09T16:17:50.429Z",
               "EditorCaption": ""
@@ -158,13 +155,12 @@
               "RelativeToolTip": "CanjePtsView.cs",
               "ViewState": "AgIAANMAAAAAAAAAAAAwwOYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T23:00:54.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T23:00:54.531Z"
             }
           ]
         },
         {
-          "DockedHeight": 96,
+          "DockedHeight": 379,
           "SelectedChildIndex": -1,
           "Children": [
             {
