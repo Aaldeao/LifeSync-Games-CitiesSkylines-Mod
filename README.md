@@ -36,13 +36,11 @@ También puedes explorar y descargarlo desde el propio **Gestor de Contenido** d
 
 1. Descarga este repositorio.  
 2. Crea una carpeta en una de las siguientes rutas: 
-
     ```
-  - <DISCO>\SteamLibrary\steamapps\common\Cities_Skylines\Files\Mods\
+   <DISCO>\SteamLibrary\steamapps\common\Cities_Skylines\Files\Mods\
     ```  
-
     ```
-  - C:\Users\<NOMBRE_DEL_EQUIPO>\AppData\Local\Colossal Order\Cities_Skylines\Addons\Mods\
+   C:\Users\<NOMBRE_DEL_EQUIPO>\AppData\Local\Colossal Order\Cities_Skylines\Addons\Mods\
     ```  
 3. Luego de extraer el repositorio, busca y copia los archivos **.dll** necesarios dentro de la carpeta creada:  
 - `ModCitiesSkylines.dll` → se encuentra en `ModCitiesSkylines\bin\Debug`  
