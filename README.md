@@ -58,7 +58,7 @@ También puedes explorar y descargarlo desde el propio **Gestor de Contenido** d
 
 ### 🔹 Instalación de servicios de LifeSync-Games:  
 
-Para instalar los servicios de [**LifeSync-Games**] (https://github.com/BlendedGames-bGames/bGames-dev-services), accede al repositorio correspondiente en GitHub y sigue las instrucciones de instalación.  
+Para instalar los servicios de [**LifeSync-Games**](https://github.com/BlendedGames-bGames/bGames-dev-services), accede al repositorio correspondiente en GitHub y sigue las instrucciones de instalación.  
 
 Se recomienda utilizar **Docker** para desplegar los servicios de forma sencilla y rápida.
 
@@ -118,6 +118,6 @@ You can also explore and download it directly from the game’s **Content Manage
 
 #### 🔹 LifeSync-Games Services Installation:  
 
-To install the [**LifeSync-Games services **](https://github.com/BlendedGames-bGames/bGames-dev-services), go to the corresponding repository on GitHub and follow the installation instructions.  
+To install the [**LifeSync-Games**](https://github.com/BlendedGames-bGames/bGames-dev-services) services , go to the corresponding repository on GitHub and follow the installation instructions.  
 
 Using **Docker** is recommended to quickly and easily deploy the services.  
