@@ -30,9 +30,9 @@ Si tienes el juego adquirido en **Steam**, puedes descargar el mod directamente 
 
 Solo debes hacer clic en **Suscribirse**, y el mod se descargará automáticamente. Luego aparecerá en el **Gestor de Contenido** de Cities: Skylines, donde podrás activarlo y comenzar a utilizarlo.  
 
-También puedes explorar y descargarlo desde el propio **Gestor de Contenido** del juego, utilizando la opción de búsqueda en **Steam Workshop** con el nombre: **LifeSync Games - Cities: Skylines**   
+También puedes explorar y descargarlo desde el propio **Gestor de Contenido** del juego, utilizando la opción de búsqueda en **Steam Workshop** con el nombre: **LifeSync Games - Cities: Skylines**.  
 
-👉 Si no cuentas con la versión de Steam pero sí con el juego en **PC**, puedes instalar el mod manualmente siguiendo los pasos descritos en la sección de **Instalación**.
+👉 Si no cuentas con la versión de Steam pero sí con el juego en **PC**, puedes instalar el mod manualmente siguiendo los pasos descritos en la sección de **📥 Instalación**.
 
 ---
 
@@ -54,7 +54,7 @@ También puedes explorar y descargarlo desde el propio **Gestor de Contenido** d
 4. Inicia **Cities: Skylines** y en el **Gestor de Contenido** activa el mod.  
 5. Es esencial tener en ejecución los **servicios LifeSync-Games** en tu máquina para poder utilizar las funcionalidades del mod (explicado en el siguiente punto).  
 
----
+
 
 ### 🔹 Instalación de servicios de LifeSync-Games:  
 
@@ -92,7 +92,7 @@ Just click **Subscribe**, and the mod will download automatically. It will then 
 
 You can also explore and download it directly from the game’s **Content Manager**, using the search option in **Steam Workshop** with the name: **LifeSync Games - Cities: Skylines**.  
 
-👉 If you don’t have the Steam version but do own the **PC version**, you can manually install the mod by following the steps in the **Installation** section.  
+👉 If you don’t have the Steam version but do own the **PC version**, you can manually install the mod by following the steps in the **📥 Instalación** section.  
 
 ---
 
@@ -114,7 +114,7 @@ You can also explore and download it directly from the game’s **Content Manage
 4. Start **Cities: Skylines** and enable the mod in the **Content Manager**.  
 5. It is essential to have the **LifeSync-Games services** running on your machine to use the mod’s features (explained in the next section).  
 
----
+
 
 #### 🔹 LifeSync-Games Services Installation:  
 
