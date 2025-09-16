@@ -52,7 +52,7 @@ También puedes explorar y descargarlo desde el propio **Gestor de Contenido** d
 - `ModCitiesSkylines.dll` → se encuentra en `ModCitiesSkylines\bin\Debug`  
 - `bGamesAPI.dll` → se encuentra en `bGamesAPI\bin\Debug`  
 4. Inicia **Cities: Skylines** y en el **Gestor de Contenido** activa el mod.  
-5. Es esencial tener en ejecución los **servicios LifeSync-Games** en tu máquina para poder utilizar las funcionalidades del mod (explicado en el siguiente punto).  
+5. Es esencial tener en ejecución los **servicios LifeSync-Games** en tu máquina para poder utilizar las funcionalidades del mod (**ver instalación en el siguiente sección**).  
 
 ---
 
@@ -112,7 +112,7 @@ You can also explore and download it directly from the game’s **Content Manage
 - `ModCitiesSkylines.dll` → located in `ModCitiesSkylines\bin\Debug`  
 - `bGamesAPI.dll` → located in `bGamesAPI\bin\Debug`  
 4. Start **Cities: Skylines** and enable the mod in the **Content Manager**.  
-5. It is essential to have the **LifeSync-Games services** running on your machine to use the mod’s features (explained in the next section).  
+5. It is essential to have the **LifeSync-Games services** running on your machine to use the mod’s features (**see installation in the next section**).  
 
 ---
 
