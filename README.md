@@ -10,7 +10,7 @@
 
 A través de sensores, se registran tus actividades del mundo real y se convierten en **puntos**, los cuales puedes utilizar dentro del juego.  
 
-Este repositorio contiene un **mod para Cities: Skylines (versión PC)** que podrás conectar tu cuenta, canjear puntos por dinero extra en el juego y recibir notificaciones, por cada hora, que te recomendarán tomar una pausa lejos de la pantalla.
+Este repositorio contiene un **mod para Cities: Skylines (versión PC)** que te permite conectar tu cuenta, canjear puntos por dinero extra en el juego y recibir notificaciones cada hora recomendándote tomar una pausa lejos de la pantalla.
 
 ---
 
@@ -70,7 +70,7 @@ Se recomienda utilizar **Docker** para desplegar los servicios de forma sencilla
 
 Through sensors, your real-world activities are recorded and converted into **points**, which you can use within the game.  
 
-This repository contains a **mod for Cities: Skylines (PC version)** that allows you to link your account, redeem points for extra in-game money, and receive hourly notifications recommending you to take a healthy break away from the screen.  
+This repository contains a **mod for Cities: Skylines (PC version)** that allows you to link your account, redeem points for extra in-game money, and receive hourly notifications recommending you to take a break away from the screen.  
 
 ---
 
